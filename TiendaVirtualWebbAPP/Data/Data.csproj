@@ -121,7 +121,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+ TAL-6-feature-create-class-customers
     <Compile Include="PayDat.cs" />
+    <Compile Include="CommentDat.cs" />
+    <Compile Include="OrderDat.cs" />
+develop
     <Compile Include="Persistence.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
