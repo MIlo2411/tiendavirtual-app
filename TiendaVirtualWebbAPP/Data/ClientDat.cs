@@ -107,5 +107,35 @@ namespace Data
             objPer.closeConnection();
             return executed;
         }
+
+         // Método para eliminar un producto
+        public bool DeleteClient(int id)
+        {
+            bool executed = false;
+            int row;
+
+            MySqlCommand objCmd = new MySqlCommand();
+            objCmd.Connection = objPer.openConnection();
+            objCmd.CommandText = "procDeleteClient"; // Nombre del procedimiento almacenado
+            objCmd.CommandType = CommandType.StoredProcedure;
+
+            // Añadir parámetros al procedimiento
+            objCmd.Parameters.Add("cli_id", MySqlDbType.Int32).Value = id;
+
+            try
+            {
+                row = objCmd.ExecuteNonQuery();
+                if (row == 1)
+                {
+                    executed = true;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Error: " + e.ToString());
+            }
+            objPer.closeConnection();
+            return executed;
+        }
     }
 }
