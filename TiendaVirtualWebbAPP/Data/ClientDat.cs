@@ -108,7 +108,7 @@ namespace Data
             return executed;
         }
 
-         // Método para eliminar un producto
+         // Método para eliminar un cliente
         public bool DeleteClient(int id)
         {
             bool executed = false;
