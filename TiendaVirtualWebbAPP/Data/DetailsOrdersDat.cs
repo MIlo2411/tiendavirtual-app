@@ -17,6 +17,7 @@ namespace Data
             DataSet objData = new DataSet();
             MySqlCommand objSelectCmd = new MySqlCommand();
 
+
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "spSelectDetailsOrders"; //nombre del procedimiento almacenado
             objSelectCmd.CommandType = CommandType.StoredProcedure;
