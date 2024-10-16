@@ -124,6 +124,7 @@
     <Compile Include="ClientDat.cs" />
     <Compile Include="CommentDat.cs" />
     <Compile Include="OrderDat.cs" />
+    <Compile Include="PayDat.cs" />
     <Compile Include="Persistence.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProvidersDat.cs" />
