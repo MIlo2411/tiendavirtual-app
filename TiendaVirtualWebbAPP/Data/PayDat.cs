@@ -101,5 +101,46 @@ namespace Data
             objPer.closeConnection();
             return executed;
         }
+
+
+        //Metodo para eliminar un producto
+
+        public bool deletePayment(int _idPayment)
+        {
+            // Se inicializa una variable para indicar si la operación se ejecutó correctamente.
+            bool executed = false;
+            int row; // Variable para almacenar el número de filas afectadas por la operación.
+
+            // Se crea un comando MySQL para eliminar un pago utilizando un procedimiento almacenado.
+            MySqlCommand objSelectCmd = new MySqlCommand();
+            objSelectCmd.Connection = objPer.openConnection();
+            objSelectCmd.CommandText = "procDeletePago"; // nombre del procedimiento almacenado
+            objSelectCmd.CommandType = CommandType.StoredProcedure;
+
+            // Se agrega un parámetro al comando para pasar el ID del pago que se desea eliminar.
+            objSelectCmd.Parameters.Add("pag_id", MySqlDbType.Int32).Value = _idPayment;
+
+            try
+            {
+                // Se ejecuta el comando y se obtiene el número de filas afectadas.
+                row = objSelectCmd.ExecuteNonQuery();
+
+                // Si se elimina una fila correctamente, se establece executed a true.
+                if (row == 1)
+                {
+                    executed = true;
+                }
+            }
+            catch (Exception e)
+            {
+                // Si ocurre un error durante la ejecución del comando, se muestra en la consola.
+                Console.WriteLine("Error " + e.ToString());
+            }
+            objPer.closeConnection();
+            // Se devuelve el valor de executed para indicar si la operación se ejecutó correctamente.
+            return executed;
+        }
+
+
     }
 }

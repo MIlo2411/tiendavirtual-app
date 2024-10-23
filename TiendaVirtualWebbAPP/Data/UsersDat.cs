@@ -7,44 +7,7 @@ namespace Data
 {
     public class UsersDat
     {
-        using MySql.Data.MySqlClient;
-using System;
-using System.Data;
 
-public class Persistence
-    {
-        private MySqlConnection connection;
-
-        // Método para abrir la conexión a la base de datos
-        public MySqlConnection openConnection()
-        {
-            if (connection == null)
-            {
-                // Cambia los valores por tu configuración de base de datos
-                string connectionString = "server=localhost;database=TiendaVirtual;uid=root;pwd=yourpassword;";
-                connection = new MySqlConnection(connectionString);
-            }
-
-            if (connection.State == ConnectionState.Closed)
-            {
-                connection.Open();
-            }
-
-            return connection;
-        }
-
-        // Método para cerrar la conexión a la base de datos
-        public void closeConnection()
-        {
-            if (connection != null && connection.State == ConnectionState.Open)
-            {
-                connection.Close();
-            }
-        }
-    }
-
-    public class UsuarioManager
-    {
         Persistence objPer = new Persistence();
 
         // Método para insertar un nuevo usuario
@@ -164,8 +127,6 @@ public class Persistence
             objPer.closeConnection();
             return executed;
         }
+
     }
-
-
-}
 }

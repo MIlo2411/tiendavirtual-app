@@ -132,7 +132,7 @@
     <Compile Include="ProductDat.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProvidersDat.cs" />
-    <Compile Include="UserDat.cs" />
+    <Compile Include="UsersDat.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
