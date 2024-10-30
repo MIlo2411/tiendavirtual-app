@@ -67,8 +67,11 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<< TAL-36-feature-create-sp-class-commentsLog
+    <Compile Include="ProductLog.cs" />
     <Compile Include="CarsLog.cs" />
     <Compile Include="OrderLog.cs" />
+>>>>>> develop
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProvidersLog.cs" />
   </ItemGroup>
