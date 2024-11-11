@@ -35,6 +35,12 @@ namespace Logic
             return objprov.deleteProvider(_id);
         }
 
+        public DataSet ShowProviderDDL()
+        {
+            return objprov.ShowProviderDDL();
+        }
+
+
 
 
         }

@@ -1,6 +1,7 @@
 ﻿using Logic;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -26,9 +27,9 @@ namespace Presentation
         {
             if (!Page.IsPostBack)
             {
-                
-                //ShowProducts();//Se invoca el metodo para mostrar todos los productos
-                //ShowProvidersDDL();//Se invoca el metodo para mostrar los proveedores en el DDL
+
+                ShowProducts();//Se invoca el metodo para mostrar todos los productos
+                ShowProviderDDL();//Se invoca el metodo para mostrar los proveedores en el DDL
                 ShowCategoriesDDL();
                 // Se oculta el campo de texto TBId.
                 //TBId.Visible = false;
@@ -60,7 +61,24 @@ namespace Presentation
             DDLCategories.Items.Insert(0, "Seleccione");
         }
 
+        private void ShowProviderDDL()
+        {
+            DDLProviders.DataSource = objProv.ShowProviderDDL();    
+            DDLProviders.DataValueField = "prov_id";//Nombre de la llave primaria
+            DDLProviders.DataTextField = "nombre";
+            DDLProviders.DataBind();
+            DDLProviders.Items.Insert(0, "Seleccione");
 
+        }
+
+        //Metodo para mostrar todos los productos
+        private void ShowProducts()
+        {
+            DataSet ds = new DataSet();
+            ds = objProd.ShowProducts();
+            GVProducts.DataSource = ds;
+            GVProducts.DataBind();
+        }
 
     }
 }
