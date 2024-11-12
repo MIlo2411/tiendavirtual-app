@@ -37,10 +37,27 @@
 <asp:DropDownList ID="DDLProviders" runat="server"></asp:DropDownList>
 <br />
 
+<<<<<<< HEAD
 <%-- Categoría --%>
 <asp:Label ID="Label6" runat="server" Text="Seleccione la categoría"></asp:Label>
 <asp:DropDownList ID="DDLCategories" runat="server"></asp:DropDownList>
 <br />
+=======
+    <%--Lista de productos--%>
+    <asp:GridView ID="GVProducts" runat="server">
+        <Columns>   
+            <asp:BoundField DataField="pro_id" HeaderText=""  />
+            <asp:BoundField DataField="pro_nombre" HeaderText=""  />
+            <asp:BoundField DataField="pro_descripcion" HeaderText=""  />
+            <asp:BoundField DataField="pro_precio" HeaderText=""  />
+            <asp:BoundField DataField="pro_stock" HeaderText=""  />
+            <asp:BoundField DataField="pro_imagen" HeaderText=""  />
+            <asp:BoundField DataField="tbl_proveedores_prov_id" HeaderText=""  />
+            <asp:BoundField DataField="tbl_categoria_cat_id" HeaderText=""  />
+            
+        </Columns>
+    </asp:GridView>
+>>>>>>> 880f6094283c914010a7e901a161ca49b51b3778
 
 <%-- Botones de acción --%>
 <asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />
