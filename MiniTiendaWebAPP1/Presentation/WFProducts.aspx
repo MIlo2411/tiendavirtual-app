@@ -51,11 +51,9 @@
             <asp:BoundField DataField="pro_precio" HeaderText=""  />
             <asp:BoundField DataField="pro_stock" HeaderText=""  />
             <asp:BoundField DataField="pro_imagen" HeaderText=""  />
-            <asp:BoundField DataField="pro_categorias_cat_id" HeaderText=""  />
-            <asp:BoundField DataField="tbl_proveedor_prov_id" HeaderText=""  />
+            <asp:BoundField DataField="tbl_proveedores_prov_id" HeaderText=""  />
             <asp:BoundField DataField="tbl_categoria_cat_id" HeaderText=""  />
-            <asp:BoundField DataField="prov_nombres" HeaderText=""  />
-
+            
         </Columns>
     </asp:GridView>
 

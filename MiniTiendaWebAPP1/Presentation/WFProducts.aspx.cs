@@ -63,11 +63,12 @@ namespace Presentation
 
         private void ShowProviderDDL()
         {
-            DDLProviders.DataSource = objProv.ShowProviderDDL();    
-            DDLProviders.DataValueField = "prov_id";//Nombre de la llave primaria
-            DDLProviders.DataTextField = "nombre";
-            DDLProviders.DataBind();
-            DDLProviders.Items.Insert(0, "Seleccione");
+         DDLProviders.DataSource = objProv.ShowProviderDDL();    
+        DDLProviders.DataValueField = "prov_id";//Nombre de la llave primaria
+        DDLProviders.DataTextField = "prov_nombre";
+        DDLProviders.DataBind();
+        DDLProviders.Items.Insert(0, "Seleccione");
+        DDLProviders.DataBind();
 
         }
 
