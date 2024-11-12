@@ -36,11 +36,11 @@
     <%--Proveedor--%>
     <asp:Label ID="Label7" runat="server" Text="Seleccione el proveedor"></asp:Label>
     <asp:DropDownList ID="DDLProviders" runat="server"></asp:DropDownList>
-   <%--<br />
-    <asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />
-    <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" OnClick="BtnUpdate_Click" />
+    <br />
+    <%--<asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />--%>
+  <%--  <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" OnClick="BtnUpdate_Click" />--%>
     <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
-    <br />--%>
+    <br />
 
     <%--Lista de productos--%>
     <asp:GridView ID="GVProducts" runat="server">
