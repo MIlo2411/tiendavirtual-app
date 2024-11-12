@@ -14,7 +14,7 @@
     <form id="form1" runat="server">
         <%--aqui va lo qu se repite en los demas formularios--%>
         <a href="#">Inicio</a>
-        <a href="#">Carrito</a>
+        <a href="WFCar.aspx">Carrito</a>
         <a href="#">Categorias</a>
         <a href="#">Usuarios</a>
         <a href="#">Comentarios</a>

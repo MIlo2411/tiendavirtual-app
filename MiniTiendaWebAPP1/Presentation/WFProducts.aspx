@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="WFProducts.aspx.cs" Inherits="Presentation.WFProducts" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="WFProducts.aspx.cs" Inherits="Presentation.WFProducts" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -32,17 +32,28 @@
 <asp:TextBox ID="TBtImg" runat="server"></asp:TextBox>
 <br />
 
+ TAL-56-Create-feature-sp-WFCar
+    <%--Proveedor--%>
+    <asp:Label ID="Label7" runat="server" Text="Seleccione el proveedor"></asp:Label>
+    <asp:DropDownList ID="DDLProviders" runat="server"></asp:DropDownList>
+    <br />
+    <%--<asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />--%>
+  <%--  <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" OnClick="BtnUpdate_Click" />--%>
+    <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
+    <br />
+
 <%-- Proveedor --%>
 <asp:Label ID="Label7" runat="server" Text="Seleccione el proveedor"></asp:Label>
 <asp:DropDownList ID="DDLProviders" runat="server"></asp:DropDownList>
 <br />
+ develop
 
-<<<<<<< HEAD
+< HEAD
 <%-- Categoría --%>
 <asp:Label ID="Label6" runat="server" Text="Seleccione la categoría"></asp:Label>
 <asp:DropDownList ID="DDLCategories" runat="server"></asp:DropDownList>
 <br />
-=======
+
     <%--Lista de productos--%>
     <asp:GridView ID="GVProducts" runat="server">
         <Columns>   
@@ -57,7 +68,7 @@
             
         </Columns>
     </asp:GridView>
->>>>>>> 880f6094283c914010a7e901a161ca49b51b3778
+ 880f6094283c914010a7e901a161ca49b51b3778
 
 <%-- Botones de acción --%>
 <asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />
