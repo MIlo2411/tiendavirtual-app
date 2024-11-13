@@ -90,7 +90,7 @@ namespace Data
         }
 
         //Metodo para actulizar un producto
-        public bool UpdateOrders(int _id, DateTime _fecha, string _estado, int _total, int _clientes_cli_id)
+        public bool UpdateOrders(int _id, string _fecha, string _estado, int _total, int _clientes_cli_id)
         {
             bool executed = false;
             int row;
@@ -102,7 +102,7 @@ namespace Data
 
             // Se agregan parámetros al comando para pasar los valores del producto.
             objSelectCmd.Parameters.Add("ped_id", MySqlDbType.Int32).Value = _id;
-            objSelectCmd.Parameters.Add("ped_fecha", MySqlDbType.Datetime).Value = _fecha;
+            objSelectCmd.Parameters.Add("ped_fecha", MySqlDbType.String).Value = _fecha;
             objSelectCmd.Parameters.Add("ped_estado", MySqlDbType.Int32).Value = _estado;
             objSelectCmd.Parameters.Add("ped_total", MySqlDbType.Int32).Value = _total;
             objSelectCmd.Parameters.Add("tbl_clientes_cli_id", MySqlDbType.Int32).Value = _clientes_cli_id;
@@ -136,7 +136,7 @@ namespace Data
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agrega un parámetro al comando para pasar el ID del pedido que se desea eliminar.
-            objSelectCmd.Parameters.Add("p_idOrder", MySqlDbType.Int32).Value = _idOrder;
+            objSelectCmd.Parameters.Add("ped_id", MySqlDbType.Int32).Value = _idOrder;
 
             try
             {
@@ -161,7 +161,7 @@ namespace Data
 
         //metodo DDL
 
-        public DataSet ShowOderDDL()
+        public DataSet ShowOrderDDL()
         {
             MySqlDataAdapter objAdapter = new MySqlDataAdapter();
             DataSet objData = new DataSet();
