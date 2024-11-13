@@ -20,7 +20,7 @@
         <a href="#">Comentarios</a>
         <a href="#">Detalles Pedidos</a>
         <a href="#">Ordenes</a>
-        <a href="#">Pagos</a>
+        <a href="WFPay.aspx">Pagos</a>
         <a href="WFProducts.aspx">Productos</a>
         <a href="#">Provedores</a>       
         <div>
