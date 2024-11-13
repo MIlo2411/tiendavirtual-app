@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Web;
 
 namespace Logic
@@ -32,11 +34,11 @@ namespace Logic
             return objord.UpdateOrders(_id, _fecha, _estado, _total, _clientes_cli_id);
         }
 
-        public DataSet ShowOderDDL()
+
+        public DataSet ShowOrderDDL()
         {
-            return objord.ShowOderDDL();
+            return objord.ShowOrderDDL();
         }
 
-        }
-
+    }
     }

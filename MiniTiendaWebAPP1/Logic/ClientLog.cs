@@ -32,9 +32,9 @@ namespace Logic
             return objcli.DeleteClient(_id);
         }
 
-        public DataSet ProcShowClientsDDL()
+        public DataSet ShowClientsDDL()
         {
-            return objcli.ProcShowClientsDDL();
+            return objcli.ShowClientsDDL();
         }
 
         }
