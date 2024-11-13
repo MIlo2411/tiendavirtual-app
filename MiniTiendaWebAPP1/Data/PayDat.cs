@@ -30,7 +30,7 @@ namespace Data
         }
 
         //Metodo para guardar un nuevo Producto
-        public bool savePay(int _id, double _monto, DateTime _fecha, string _metodo_pago, int _pedidos_ped_id)
+        public bool savePay( double _monto, string _fecha, string _metodo_pago, int _pedidos_ped_id)
         {
             // Se inicializa una variable para indicar si la operación se ejecutó correctamente.
             bool executed = false;
@@ -43,9 +43,8 @@ namespace Data
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agregan parámetros al comando para pasar los valores del producto.
-            objSelectCmd.Parameters.Add("pag_id", MySqlDbType.Int32).Value = _id;
             objSelectCmd.Parameters.Add("pag_monto", MySqlDbType.Double).Value = _monto;
-            objSelectCmd.Parameters.Add("pag_fecha", MySqlDbType.Datetime).Value = _fecha;
+            objSelectCmd.Parameters.Add("pag_fecha", MySqlDbType.VarString).Value = _fecha;
             objSelectCmd.Parameters.Add("pag_metodo_pago", MySqlDbType.VarString).Value = _metodo_pago;
             objSelectCmd.Parameters.Add("tbl_pedidos_ped_id", MySqlDbType.Int32).Value = _pedidos_ped_id;
 
@@ -71,7 +70,7 @@ namespace Data
         }
 
         //Metodo para actulizar un producto
-        public bool updatePay(int _id, double _monto, DateTime _fecha, string _metodo_pago, int _pedidos_ped_id)
+        public bool updatePay(int _id, double _monto, string _fecha, string _metodo_pago, int _pedidos_ped_id)
         {
             bool executed = false;
             int row;
@@ -84,7 +83,7 @@ namespace Data
             // Se agregan parámetros al comando para pasar los valores del producto.
             objSelectCmd.Parameters.Add("pag_id", MySqlDbType.Int32).Value = _id;
             objSelectCmd.Parameters.Add("pag_monto", MySqlDbType.Double).Value = _monto;
-            objSelectCmd.Parameters.Add("pag_fecha", MySqlDbType.Datetime).Value = _fecha;
+            objSelectCmd.Parameters.Add("pag_fecha", MySqlDbType.VarString).Value = _fecha;
             objSelectCmd.Parameters.Add("pag_metodo_pago", MySqlDbType.VarString).Value = _metodo_pago;
             objSelectCmd.Parameters.Add("tbl_pedidos_ped_id", MySqlDbType.Int32).Value = _pedidos_ped_id;
 

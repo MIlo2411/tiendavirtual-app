@@ -20,7 +20,7 @@ namespace Data
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "spSelectProviders";
+            objSelectCmd.CommandText = "procShowSuppliers";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
             objAdapter.SelectCommand = objSelectCmd;
             objAdapter.Fill(objData);
@@ -52,12 +52,12 @@ namespace Data
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "spInsertProvider"; //nombre del procedimiento almacenado
+            objSelectCmd.CommandText = "procInsertSupplier"; //nombre del procedimiento almacenado
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("p_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("p_contacto", MySqlDbType.VarString).Value = _contacto;
-            objSelectCmd.Parameters.Add("p_telefono", MySqlDbType.VarString).Value = _telefono;
-            objSelectCmd.Parameters.Add("p_direccion", MySqlDbType.VarString).Value = _direccion;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_contacto", MySqlDbType.VarString).Value = _contacto;
+            objSelectCmd.Parameters.Add("v_telefono", MySqlDbType.VarString).Value = _telefono;
+            objSelectCmd.Parameters.Add("v_direccion", MySqlDbType.VarString).Value = _direccion;
 
             try
             {
@@ -83,13 +83,13 @@ namespace Data
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "spUpdateProvider"; //nombre del procedimiento almacenado
+            objSelectCmd.CommandText = "procUpdateSupplier"; //nombre del procedimiento almacenado
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("p_id", MySqlDbType.Int32).Value = _id;
-            objSelectCmd.Parameters.Add("p_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("p_contacto", MySqlDbType.VarString).Value = _contacto;
-            objSelectCmd.Parameters.Add("p_telefono", MySqlDbType.VarString).Value = _telefono;
-            objSelectCmd.Parameters.Add("p_direccion", MySqlDbType.VarString).Value = _direccion;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _id;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_contacto", MySqlDbType.VarString).Value = _contacto;
+            objSelectCmd.Parameters.Add("v_telefono", MySqlDbType.VarString).Value = _telefono;
+            objSelectCmd.Parameters.Add("v_direccion", MySqlDbType.VarString).Value = _direccion;
 
             try
             {
@@ -142,7 +142,7 @@ namespace Data
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procShowProductsDDL";
+            objSelectCmd.CommandText = "procShowSuppliersDDL";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
             objAdapter.SelectCommand = objSelectCmd;
             objAdapter.Fill(objData);

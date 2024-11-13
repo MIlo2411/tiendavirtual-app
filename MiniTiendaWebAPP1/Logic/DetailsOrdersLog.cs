@@ -29,9 +29,9 @@ namespace Logic
         {
             return objdet.DeleteDetailsOrder(_detId);
         }
-        public DataSet procShowDetallesPedidoDDL()
+        public DataSet ShowDetallesPedidoDDL()
         {
-            return objdet.procShowDetallesPedidoDDL();  
+            return objdet.ShowDetallesPedidoDDL();  
         }
 
 
