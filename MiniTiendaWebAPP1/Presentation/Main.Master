@@ -18,9 +18,14 @@
         <a href="#">Categorias</a>
         <a href="#">Usuarios</a>
         <a href="#">Comentarios</a>
+ TAL-61-Create-feature-sp-WFOrder
+        <a href="#">Detalles Pedidos</a>
+        <a href="WFOrder.aspx">Ordenes</a>
+        <a href="#">Pagos</a>
+
         <a href="WFDetailsOrder.aspx">Detalles Pedidos</a>
         <a href="#">Ordenes</a>
-        <a href="WFPay.aspx">Pagos</a>
+ develop
         <a href="WFProducts.aspx">Productos</a>
         <a href="#">Provedores</a>       
         <div>

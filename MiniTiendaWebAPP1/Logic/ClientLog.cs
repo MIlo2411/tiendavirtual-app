@@ -24,7 +24,7 @@ namespace Logic
 
         public bool UpdateClients(int _id, string _nombre, string _apellido, string _correo, string _contrasena, string _direccion_envio, string _telefono, DateTime _fecha_registro)
         {
-            return objcli.UpdateClients( _id,  _nombre,  _apellido,  _correo,  _contrasena,  _direccion_envio, _telefono, _fecha_registro);
+            return objcli.UpdateClients(_id, _nombre, _apellido, _correo, _contrasena, _direccion_envio, _telefono, _fecha_registro);
         }
 
         public bool DeleteClients(int _id)
@@ -37,6 +37,6 @@ namespace Logic
             return objcli.ShowClientsDDL();
         }
 
-        }
+    }
 
 }
