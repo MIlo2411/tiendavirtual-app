@@ -17,7 +17,7 @@
         <a href="#">Carrito</a>
         <a href="#">Categorias</a>
         <a href="#">Usuarios</a>
-        <a href="#">Comentarios</a>
+        <a href="WFComments.aspx">Comentarios</a>
         <a href="#">Detalles Pedidos</a>
         <a href="#">Ordenes</a>
         <a href="#">Pagos</a>

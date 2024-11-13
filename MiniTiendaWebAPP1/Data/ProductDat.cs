@@ -130,7 +130,7 @@ namespace Data
             return executed;
         }
 
-        public DataSet procShowProductsDDL()
+        public DataSet ShowProductsDDL()
         {
             MySqlDataAdapter objAdapter = new MySqlDataAdapter();
             DataSet objData = new DataSet();

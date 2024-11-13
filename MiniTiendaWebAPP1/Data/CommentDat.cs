@@ -31,7 +31,7 @@ namespace Data
         }
 
         //Metodo para guardar un nuevo Producto
-        public bool SaveComments(int _id, string _comentario, double _calificacion, DateTime _fecha, int _productos_pro_id, int _clientes_cli_id)
+        public bool SaveComments(int _id, string _comentario, double _calificacion, string _fecha, int _productos_pro_id, int _clientes_cli_id)
         {
             // Se inicializa una variable para indicar si la operación se ejecutó correctamente.
             bool executed = false;
@@ -44,12 +44,12 @@ namespace Data
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agregan parámetros al comando para pasar los valores del producto.
-            objSelectCmd.Parameters.Add("com_id", MySqlDbType.Int32).Value = _id;
-            objSelectCmd.Parameters.Add("com_comentario", MySqlDbType.VarString).Value = _comentario;
-            objSelectCmd.Parameters.Add("com_calificacion", MySqlDbType.Double).Value = _calificacion;
-            objSelectCmd.Parameters.Add("com_fecha", MySqlDbType.Datetime).Value = _fecha;
-            objSelectCmd.Parameters.Add("tbl_productos_pro_id", MySqlDbType.Int32).Value = _productos_pro_id;
-            objSelectCmd.Parameters.Add("tbl_clientes_cli_id", MySqlDbType.Int32).Value = _clientes_cli_id;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _id;
+            objSelectCmd.Parameters.Add("v_comentario", MySqlDbType.VarString).Value = _comentario;
+            objSelectCmd.Parameters.Add("v_calificacion", MySqlDbType.Double).Value = _calificacion;
+            objSelectCmd.Parameters.Add("v_fecha", MySqlDbType.String).Value = _fecha;
+            objSelectCmd.Parameters.Add("v_producto_id", MySqlDbType.Int32).Value = _productos_pro_id;
+            objSelectCmd.Parameters.Add("v_cliente_id", MySqlDbType.Int32).Value = _clientes_cli_id;
 
             try
             {
@@ -73,7 +73,7 @@ namespace Data
         }
 
         //Metodo para actulizar un producto
-        public bool UpdateComments(int _id, string _comentario, double _calificacion, DateTime _fecha, int _productos_pro_id, int _clientes_cli_id)
+        public bool UpdateComments(int _id, string _comentario, double _calificacion, string _fecha, int _productos_pro_id, int _clientes_cli_id)
         {
             bool executed = false;
             int row;
@@ -84,12 +84,12 @@ namespace Data
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agregan parámetros al comando para pasar los valores del producto.
-            objSelectCmd.Parameters.Add("com_id", MySqlDbType.Int32).Value = _id;
-            objSelectCmd.Parameters.Add("com_comentario", MySqlDbType.VarString).Value = _comentario;
-            objSelectCmd.Parameters.Add("com_calificacion", MySqlDbType.Double).Value = _calificacion;
-            objSelectCmd.Parameters.Add("com_fecha", MySqlDbType.Datetime).Value = _fecha;
-            objSelectCmd.Parameters.Add("tbl_productos_pro_id", MySqlDbType.Int32).Value = _productos_pro_id;
-            objSelectCmd.Parameters.Add("tbl_clientes_cli_id", MySqlDbType.Int32).Value = _clientes_cli_id;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _id;
+            objSelectCmd.Parameters.Add("v_comentario", MySqlDbType.VarString).Value = _comentario;
+            objSelectCmd.Parameters.Add("v_calificacion", MySqlDbType.Double).Value = _calificacion;
+            objSelectCmd.Parameters.Add("v_fecha", MySqlDbType.String).Value = _fecha;
+            objSelectCmd.Parameters.Add("v_producto_id", MySqlDbType.Int32).Value = _productos_pro_id;
+            objSelectCmd.Parameters.Add("v_cliente_id", MySqlDbType.Int32).Value = _clientes_cli_id;
 
             try
             {
@@ -158,7 +158,7 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
 
             // Se especifica el nombre del procedimiento almacenado a ejecutar.
-            objSelectCmd.CommandText = "procShowComment";
+            objSelectCmd.CommandText = "procShowComments";
 
             // Se indica que se trata de un procedimiento almacenado.
             objSelectCmd.CommandType = CommandType.StoredProcedure;

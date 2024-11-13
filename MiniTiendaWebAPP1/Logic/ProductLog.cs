@@ -32,9 +32,9 @@ namespace Logic
             return objpro.ShowProducts();
         }
 
-        public DataSet procShowProductsDDL()
+        public DataSet ShowProductsDDL()
         {
-            return objpro.procShowProductsDDL();
+            return objpro.ShowProductsDDL();
         }
         }
     }

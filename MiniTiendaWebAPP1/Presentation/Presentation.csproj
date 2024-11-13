@@ -69,7 +69,7 @@
   <ItemGroup>
     <Content Include="Web.config" />
     <Content Include="Inicio.aspx" />
-    <Content Include="WFProducts.aspx" />
+    <Content Include="WFComments.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.Master.cs">
@@ -87,12 +87,12 @@
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WFProducts.aspx.cs">
-      <DependentUpon>WFProducts.aspx</DependentUpon>
+    <Compile Include="WFComments.aspx.cs">
+      <DependentUpon>WFComments.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WFProducts.aspx.designer.cs">
-      <DependentUpon>WFProducts.aspx</DependentUpon>
+    <Compile Include="WFComments.aspx.designer.cs">
+      <DependentUpon>WFComments.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
