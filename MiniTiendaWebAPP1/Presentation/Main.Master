@@ -22,7 +22,7 @@
         <a href="#">Ordenes</a>
         <a href="#">Pagos</a>
         <a href="WFProducts.aspx">Productos</a>
-        <a href="#">Provedores</a>       
+        <a href="WFProviders.aspx">Provedores</a>       
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
