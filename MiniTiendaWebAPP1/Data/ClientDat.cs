@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Web;
 
 namespace Data
@@ -14,7 +15,7 @@ namespace Data
 
 
         // Método para mostrar los productos desde la base de datos.
-        public DataSet ShowClients()
+        public DataSet procShowClients()
         {
             // Se crea un adaptador de datos para MySQL.
             MySqlDataAdapter objAdapter = new MySqlDataAdapter();
@@ -30,34 +31,27 @@ namespace Data
         }
 
         //Metodo para guardar un nuevo Producto
-        public bool SaveClients(int _id, string _nombre, string _apellido, string _correo, string _contrasena, string _direccion_envio, string _telefono, DateTime _fecha_registro)
+        public bool SaveClients(string _nombre, string _apellido, string _correo, string _contrasena, string _direccion_envio, int _telefono)
         {
-            // Se inicializa una variable para indicar si la operación se ejecutó correctamente.
             bool executed = false;
-            int row;// Variable para almacenar el número de filas afectadas por la operación.
+            int row;
 
-            // Se crea un comando MySQL para insertar un nuevo producto utilizando un procedimiento almacenado.
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procInsertClient"; //nombre del procedimiento almacenado
+            objSelectCmd.CommandText = "procInsertClient";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
-            // Se agregan parámetros al comando para pasar los valores del producto.
-            objSelectCmd.Parameters.Add("cli_id", MySqlDbType.Int32).Value = _id;
-            objSelectCmd.Parameters.Add("cli_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("cli_apellido", MySqlDbType.VarString).Value = _apellido;
-            objSelectCmd.Parameters.Add("cli_correo", MySqlDbType.VarString).Value = _correo;
-            objSelectCmd.Parameters.Add("cli_contrasena", MySqlDbType.VarString).Value = _contrasena;
-            objSelectCmd.Parameters.Add("cli_direccion_envio", MySqlDbType.VarString).Value = _direccion_envio;
-            objSelectCmd.Parameters.Add("cli_telefono", MySqlDbType.String).Value = _telefono;
-            objSelectCmd.Parameters.Add("cli_fecha_registro", MySqlDbType.Text).Value = _fecha_registro;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarChar).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_apellido", MySqlDbType.VarChar).Value = _apellido;
+            objSelectCmd.Parameters.Add("v_correo", MySqlDbType.String).Value = _correo;
+            objSelectCmd.Parameters.Add("v_contrasena", MySqlDbType.String).Value = _contrasena;
+            objSelectCmd.Parameters.Add("v_direccion", MySqlDbType.String).Value = _direccion_envio;
+            objSelectCmd.Parameters.Add("v_telefono", MySqlDbType.Int32).Value = _telefono;
+           
 
             try
             {
-                // Se ejecuta el comando y se obtiene el número de filas afectadas.
                 row = objSelectCmd.ExecuteNonQuery();
-
-                // Si se inserta una fila correctamente, se establece executed a true.
                 if (row == 1)
                 {
                     executed = true;
@@ -65,16 +59,19 @@ namespace Data
             }
             catch (Exception e)
             {
-                // Si ocurre un error durante la ejecución del comando, se muestra en la consola.
                 Console.WriteLine("Error " + e.ToString());
             }
-            objPer.closeConnection();
-            // Se devuelve el valor de executed para indicar si la operación se ejecutó correctamente.
+            finally
+            {
+                objPer.closeConnection();
+            }
             return executed;
         }
 
+
+
         //Metodo para actulizar un producto
-        public bool UpdateClients(int _id, string _nombre, string _apellido, string _correo, string _contrasena, string _direccion_envio, string _telefono, DateTime _fecha_registro)
+        public bool UpdateClients(int _id, string _nombre, string _apellido, string _correo, string _contrasena, string _direccion_envio, int _telefono)
         {
             bool executed = false;
             int row;
@@ -85,14 +82,14 @@ namespace Data
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agregan parámetros al comando para pasar los valores del producto.
-            objSelectCmd.Parameters.Add("cli_id", MySqlDbType.Int32).Value = _id;
-            objSelectCmd.Parameters.Add("cli_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("cli_apellido", MySqlDbType.VarString).Value = _apellido;
-            objSelectCmd.Parameters.Add("cli_correo", MySqlDbType.VarString).Value = _correo;
-            objSelectCmd.Parameters.Add("cli_contrasena", MySqlDbType.VarString).Value = _contrasena;
-            objSelectCmd.Parameters.Add("cli_direccion_envio", MySqlDbType.VarString).Value = _direccion_envio;
-            objSelectCmd.Parameters.Add("cli_telefono", MySqlDbType.Int32).Value = _telefono;
-            objSelectCmd.Parameters.Add("cli_fecha_registro", MySqlDbType.Datetime).Value = _fecha_registro;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _id;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_apellido", MySqlDbType.VarString).Value = _apellido;
+            objSelectCmd.Parameters.Add("v_correo", MySqlDbType.VarChar).Value = _correo;
+            objSelectCmd.Parameters.Add("v_contrasena", MySqlDbType.VarChar).Value = _contrasena;
+            objSelectCmd.Parameters.Add("v_direccion", MySqlDbType.VarChar).Value = _direccion_envio;
+            objSelectCmd.Parameters.Add("v_telefono", MySqlDbType.Int32).Value = _telefono;
+           
 
             try
             {
