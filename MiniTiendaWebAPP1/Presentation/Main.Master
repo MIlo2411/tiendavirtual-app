@@ -11,16 +11,20 @@
 </head>
 <body>
     <form id="form1" runat="server">
+ TAL-57-Create-feature-sp-WFCategory
+        <%--aqui va lo que se repite en los demas formularios--%>
+
  TAL-60-Create-feature-sp-WFDetailsOrder
         <%--aqui va lo qu se repite en los demas formularios--%>
  TAL-58-Create-feature-sp-WFClient
+ develop
         <a href="#">Inicio</a>
         <a href="WFClient.aspx">Clientes</a>
 
         <a href="Inicio.aspx">Inicio</a>
  develop
         <a href="#">Carrito</a>
-        <a href="#">Categorias</a>
+        <a href="WFCategory.aspx">Categorias</a>
         <a href="#">Usuarios</a>
         <a href="#">Comentarios</a>
  TAL-61-Create-feature-sp-WFOrder
