@@ -21,7 +21,11 @@ namespace Presentation
         private double _precio;
         private int _id, _stock, _proveedor_Id, _categoria_Id;
 
+        
+
         private bool executed = false;
+
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -61,13 +65,23 @@ namespace Presentation
             DDLCategories.Items.Insert(0, "Seleccione");
         }
 
+        
         private void ShowProviderDDL()
         {
+<<<<<<< HEAD
             DDLProviders.DataSource = objProv.ShowProviderDDL();    
             DDLProviders.DataValueField = "prov_id";//Nombre de la llave primaria
-            DDLProviders.DataTextField = "nombre";
+            DDLProviders.DataTextField = "prov_nombre";
             DDLProviders.DataBind();
             DDLProviders.Items.Insert(0, "Seleccione");
+=======
+         DDLProviders.DataSource = objProv.ShowProviderDDL();    
+        DDLProviders.DataValueField = "prov_id";//Nombre de la llave primaria
+        DDLProviders.DataTextField = "prov_nombre";
+        DDLProviders.DataBind();
+        DDLProviders.Items.Insert(0, "Seleccione");
+        DDLProviders.DataBind();
+>>>>>>> 880f6094283c914010a7e901a161ca49b51b3778
 
         }
 
@@ -80,5 +94,102 @@ namespace Presentation
             GVProducts.DataBind();
         }
 
+
+        private void clear()
+        {
+            HFProductId.Value = "";
+            TBNombre.Text = "";
+            TBDescription.Text = "";
+            TBPrice.Text = "";
+            TBStock.Text = "";
+            DDLProviders.SelectedIndex = 0;
+            DDLCategories.SelectedIndex = 0;
+        }
+
+        //Evento para guardar cuando uno le de click
+        protected void BtnSave_Click(object sender, EventArgs e)
+        {
+            
+            _nombre = TBNombre.Text;
+            _descripcion = TBDescription.Text;
+            _precio = Convert.ToInt32(TBPrice.Text);
+            _stock = Convert.ToInt32(TBStock.Text);
+            _imagen = TBtImg.Text;
+            _proveedor_Id = Convert.ToInt32(DDLProviders.Text);
+            _categoria_Id = Convert.ToInt32(DDLCategories.Text);
+
+            executed = objProd.InsertProduct(_nombre, _descripcion, _precio, _stock, _imagen, _proveedor_Id, _categoria_Id);
+            
+
+            if (executed)
+            {
+                LblMsj.Text = "¡El Producto se guardó exitosamente!";
+                clear(); // Limpiar los TextBox después de guardar
+                ShowProducts();// Mostrar los carritos actualizados
+            }
+            else
+            {
+                LblMsj.Text = "¡Error al guardar!";
+            }
+
+        }
+
+        //Evento para actualizar cuando uno le de click
+        protected void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            _id = Convert.ToInt32(HFProductId.Value);
+            _nombre = TBNombre.Text;
+            _descripcion = TBDescription.Text;
+            _precio = Convert.ToDouble(TBPrice.Text);
+            _stock = Convert.ToInt32(TBStock.Text);
+            _imagen = TBtImg.Text;
+           
+
+            executed = objProd.UpdateProduct(_id, _nombre, _descripcion, _precio, _stock, _imagen);
+
+
+            if (executed)
+            {
+                LblMsj.Text = "¡El Producto se actualizo exitosamente!";
+                clear(); // Limpiar los TextBox después de guardar
+                ShowProducts();// Mostrar los carritos actualizados
+            }
+            else
+            {
+                LblMsj.Text = "¡Error al actualizar!";
+            }
+
+
+
+        }
+
+        protected void GVProducts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Asignar el valor de la fila seleccionada a los controles
+            HFProductId.Value = GVProducts.SelectedRow.Cells[0].Text;
+            TBNombre.Text = GVProducts.SelectedRow.Cells[1].Text;
+            TBDescription.Text = GVProducts.SelectedRow.Cells[2].Text;
+            TBPrice.Text = GVProducts.SelectedRow.Cells[3].Text;
+            TBStock.Text = GVProducts.SelectedRow.Cells[4].Text;
+            TBtImg.Text = GVProducts.SelectedRow.Cells[5].Text;
+
+            // Configuración de DDLProviders (proveedor) y DDLCategories (categoría)
+            if (!string.IsNullOrEmpty(GVProducts.SelectedRow.Cells[6].Text))
+            {
+                DDLProviders.SelectedValue = GVProducts.SelectedRow.Cells[6].Text;
+            }
+
+            if (!string.IsNullOrEmpty(GVProducts.SelectedRow.Cells[7].Text))
+            {
+                DDLCategories.SelectedValue = GVProducts.SelectedRow.Cells[7].Text;
+            }
+            
+
+        }
+
+        
+
     }
+
+
 }
