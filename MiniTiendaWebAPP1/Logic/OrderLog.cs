@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting;
 using System.Web;
 
 namespace Logic
@@ -35,7 +37,17 @@ namespace Logic
         public DataSet ShowOderDDL()
         {
 
+ TAL-61-Create-feature-sp-WFOrder
             return objord.ShowOderDDL();
         }
     }
 }
+
+        public DataSet ShowOrderDDL()
+        {
+            return objord.ShowOrderDDL();
+        }
+
+    }
+    }
+ develop

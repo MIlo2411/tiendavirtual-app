@@ -90,7 +90,11 @@ namespace Data
         }
 
         //Metodo para actulizar un producto
+        TAL-61-Create-feature-sp-WFOrder
         public bool UpdateOrders(int _id, string _fecha, string _estado, int _total, int _fkclients)
+
+        public bool UpdateOrders(int _id, string _fecha, string _estado, int _total, int _clientes_cli_id)
+        develop
         {
             bool executed = false;
             int row;
@@ -101,11 +105,19 @@ namespace Data
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agregan parámetros al comando para pasar los valores del producto.
+            TAL-61-Create-feature-sp-WFOrder
             objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _id;
             objSelectCmd.Parameters.Add("v_fecha", MySqlDbType.String).Value = _fecha;
             objSelectCmd.Parameters.Add("v_estado", MySqlDbType.VarString).Value = _estado;
             objSelectCmd.Parameters.Add("v_total", MySqlDbType.Int32).Value = _total;
             objSelectCmd.Parameters.Add("v_cliente_id", MySqlDbType.Int32).Value = _fkclients;
+
+            objSelectCmd.Parameters.Add("ped_id", MySqlDbType.Int32).Value = _id;
+            objSelectCmd.Parameters.Add("ped_fecha", MySqlDbType.String).Value = _fecha;
+            objSelectCmd.Parameters.Add("ped_estado", MySqlDbType.Int32).Value = _estado;
+            objSelectCmd.Parameters.Add("ped_total", MySqlDbType.Int32).Value = _total;
+            objSelectCmd.Parameters.Add("tbl_clientes_cli_id", MySqlDbType.Int32).Value = _clientes_cli_id;
+            develop
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();
@@ -136,7 +148,7 @@ namespace Data
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agrega un parámetro al comando para pasar el ID del pedido que se desea eliminar.
-            objSelectCmd.Parameters.Add("p_idOrder", MySqlDbType.Int32).Value = _idOrder;
+            objSelectCmd.Parameters.Add("ped_id", MySqlDbType.Int32).Value = _idOrder;
 
             try
             {
@@ -161,7 +173,7 @@ namespace Data
 
         //metodo DDL
 
-        public DataSet ShowOderDDL()
+        public DataSet ShowOrderDDL()
         {
             MySqlDataAdapter objAdapter = new MySqlDataAdapter();
             DataSet objData = new DataSet();
