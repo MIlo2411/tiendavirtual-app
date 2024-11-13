@@ -49,7 +49,7 @@ namespace Data
         }
 
         //Metodo para guardar un nuevo Producto
-        public bool SaveOrders(int _id, string _fecha, string _estado, int _total, int _clientes_cli_id)
+        public bool SaveOrders(int _id, string _fecha, string _estado, int _total, int _fkclients)
         {
             // Se inicializa una variable para indicar si la operación se ejecutó correctamente.
             bool executed = false;
@@ -62,11 +62,11 @@ namespace Data
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agregan parámetros al comando para pasar los valores del producto.
-            objSelectCmd.Parameters.Add("ped_id", MySqlDbType.Int32).Value = _id;
-            objSelectCmd.Parameters.Add("ped_fecha", MySqlDbType.VarString).Value = _fecha;
-            objSelectCmd.Parameters.Add("ped_estado", MySqlDbType.Int32).Value = _estado;
-            objSelectCmd.Parameters.Add("ped_total", MySqlDbType.Int32).Value = _total;
-            objSelectCmd.Parameters.Add("tbl_clientes_cli_id", MySqlDbType.Int32).Value = _clientes_cli_id;
+       
+            objSelectCmd.Parameters.Add("v_fecha", MySqlDbType.VarString).Value = _fecha;
+            objSelectCmd.Parameters.Add("v_estado", MySqlDbType.VarString).Value = _estado;
+            objSelectCmd.Parameters.Add("v_total", MySqlDbType.Int32).Value = _total;
+            objSelectCmd.Parameters.Add("v_cliente_id", MySqlDbType.Int32).Value = _fkclients;
 
             try
             {
@@ -90,22 +90,34 @@ namespace Data
         }
 
         //Metodo para actulizar un producto
-        public bool UpdateOrders(int _id, DateTime _fecha, string _estado, int _total, int _clientes_cli_id)
+        TAL-61-Create-feature-sp-WFOrder
+        public bool UpdateOrders(int _id, string _fecha, string _estado, int _total, int _fkclients)
+
+        public bool UpdateOrders(int _id, string _fecha, string _estado, int _total, int _clientes_cli_id)
+        develop
         {
             bool executed = false;
             int row;
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procInsertPedido"; //nombre del procedimiento almacenado
+            objSelectCmd.CommandText = "procUpdatePedido"; //nombre del procedimiento almacenado
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agregan parámetros al comando para pasar los valores del producto.
+            TAL-61-Create-feature-sp-WFOrder
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _id;
+            objSelectCmd.Parameters.Add("v_fecha", MySqlDbType.String).Value = _fecha;
+            objSelectCmd.Parameters.Add("v_estado", MySqlDbType.VarString).Value = _estado;
+            objSelectCmd.Parameters.Add("v_total", MySqlDbType.Int32).Value = _total;
+            objSelectCmd.Parameters.Add("v_cliente_id", MySqlDbType.Int32).Value = _fkclients;
+
             objSelectCmd.Parameters.Add("ped_id", MySqlDbType.Int32).Value = _id;
-            objSelectCmd.Parameters.Add("ped_fecha", MySqlDbType.Datetime).Value = _fecha;
+            objSelectCmd.Parameters.Add("ped_fecha", MySqlDbType.String).Value = _fecha;
             objSelectCmd.Parameters.Add("ped_estado", MySqlDbType.Int32).Value = _estado;
             objSelectCmd.Parameters.Add("ped_total", MySqlDbType.Int32).Value = _total;
             objSelectCmd.Parameters.Add("tbl_clientes_cli_id", MySqlDbType.Int32).Value = _clientes_cli_id;
+            develop
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();
@@ -136,7 +148,7 @@ namespace Data
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agrega un parámetro al comando para pasar el ID del pedido que se desea eliminar.
-            objSelectCmd.Parameters.Add("p_idOrder", MySqlDbType.Int32).Value = _idOrder;
+            objSelectCmd.Parameters.Add("ped_id", MySqlDbType.Int32).Value = _idOrder;
 
             try
             {
@@ -161,7 +173,7 @@ namespace Data
 
         //metodo DDL
 
-        public DataSet ShowOderDDL()
+        public DataSet ShowOrderDDL()
         {
             MySqlDataAdapter objAdapter = new MySqlDataAdapter();
             DataSet objData = new DataSet();

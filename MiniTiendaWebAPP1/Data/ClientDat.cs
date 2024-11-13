@@ -137,7 +137,7 @@ namespace Data
             return executed;
         }
 
-        public DataSet ProcShowClientsDDL()
+        public DataSet ShowClientsDDL()
         {
             MySqlDataAdapter objAdapter = new MySqlDataAdapter();
             DataSet objData = new DataSet();
