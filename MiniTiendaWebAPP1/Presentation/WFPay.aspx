@@ -40,7 +40,7 @@
         <%-- Lista de provedores --%>
         <asp:GridView ID="GVPagos" runat="server" OnSelectedIndexChanged="GVPagos_SelectedIndexChanged" AutoGenerateColumns="False">
             <columns>
-                <asp:BoundField DataField="pag_id" HeaderText="ID Pago" />
+                <asp:BoundField DataField="pag_id" HeaderText="ID Pago" /> 
                 <asp:BoundField DataField="pag_monto" HeaderText="Monto" />
                 <asp:BoundField DataField="pag_fecha" HeaderText="Fecha" />
                 <asp:BoundField DataField="pag_metodo_pago" HeaderText="Metodo de Pago" />
@@ -52,4 +52,5 @@
 
 
     </div>
+
 </asp:Content>

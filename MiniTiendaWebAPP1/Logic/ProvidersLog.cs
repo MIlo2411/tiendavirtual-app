@@ -11,35 +11,29 @@ namespace Logic
     {
         ProvidersDat objprov = new ProvidersDat();
 
-        public DataSet showProviders()
+        public DataSet ShowSuppliers()
         {
-            return objprov.showProviders();
+            return objprov.ShowSuppliers();
         }
 
-        public DataSet showProvidersDDL()
+        public DataSet ShowSuppliersDDL()
         {
-            return objprov.showProvidersDDL();
+            return objprov.ShowSuppliersDDL();
         }
 
-        public bool saveProvider(string _nombre, string _contacto, string _telefono, string _direccion)
+        public bool SaveSuppliers(string _nombre, string _contacto, string _telefono, string _direccion)
         {
-            return objprov.saveProvider(_nombre, _contacto, _telefono, _direccion);
+            return objprov.SaveSuppliers(_nombre, _contacto, _telefono, _direccion);
         }
 
-        public bool updateProvider(int _id, string _nombre, string _contacto, string _telefono, string _direccion)
+        public bool UpdateSuppliers(int _id, string _nombre, string _contacto, string _telefono, string _direccion)
         {
-            return objprov.updateProvider(_id, _nombre, _contacto, _telefono, _direccion);
+            return objprov.UpdateSuppliers(_id, _nombre, _contacto, _telefono, _direccion);
         }
-        public bool deleteProvider(int _id)
+        public bool deleteSuppliers(int _id)
         { 
-            return objprov.deleteProvider(_id);
+            return objprov.DeleteSuppliers(_id);
         }
-
-        public DataSet ShowProviderDDL()
-        {
-            return objprov.ShowProviderDDL();
-        }
-
 
 
 

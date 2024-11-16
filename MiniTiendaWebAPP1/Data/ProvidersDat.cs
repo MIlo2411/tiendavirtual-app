@@ -13,7 +13,7 @@ namespace Data
         Persistence objPer = new Persistence();
 
         // Método para mostrar todos los Proveedores
-        public DataSet showProviders()
+        public DataSet ShowSuppliers()
         {
             MySqlDataAdapter objAdapter = new MySqlDataAdapter();
             DataSet objData = new DataSet();
@@ -29,14 +29,14 @@ namespace Data
         }
 
         // Método para mostrar únicamente el id y el nombre del proveedor
-        public DataSet showProvidersDDL()
+        public DataSet ShowSuppliersDDL()
         {
             MySqlDataAdapter objAdapter = new MySqlDataAdapter();
             DataSet objData = new DataSet();
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "spSelectProvidersDDL";
+            objSelectCmd.CommandText = "procShowSuppliersDDL";
             objSelectCmd.CommandType = CommandType.StoredProcedure;
             objAdapter.SelectCommand = objSelectCmd;
             objAdapter.Fill(objData);
@@ -45,7 +45,7 @@ namespace Data
         }
 
         // Método para guardar un nuevo Proveedor
-        public bool saveProvider(string _nombre, string _contacto, string _telefono, string _direccion)
+        public bool SaveSuppliers(string _nombre, string _contacto, string _telefono, string _direccion)
         {
             bool executed = false;
             int row;
@@ -54,10 +54,10 @@ namespace Data
             objSelectCmd.Connection = objPer.openConnection();
             objSelectCmd.CommandText = "procInsertSupplier"; //nombre del procedimiento almacenado
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("v_contacto", MySqlDbType.VarString).Value = _contacto;
-            objSelectCmd.Parameters.Add("v_telefono", MySqlDbType.VarString).Value = _telefono;
-            objSelectCmd.Parameters.Add("v_direccion", MySqlDbType.VarString).Value = _direccion;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarChar).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_contacto", MySqlDbType.VarChar).Value = _contacto;
+            objSelectCmd.Parameters.Add("v_telefono", MySqlDbType.VarChar).Value = _telefono;
+            objSelectCmd.Parameters.Add("v_direccion", MySqlDbType.VarChar).Value = _direccion;
 
             try
             {
@@ -76,7 +76,7 @@ namespace Data
         }
 
         // Método para actualizar un Proveedor
-        public bool updateProvider(int _id, string _nombre, string _contacto, string _telefono, string _direccion)
+        public bool UpdateSuppliers(int _id, string _nombre, string _contacto, string _telefono, string _direccion)
         {
             bool executed = false;
             int row;
@@ -86,10 +86,10 @@ namespace Data
             objSelectCmd.CommandText = "procUpdateSupplier"; //nombre del procedimiento almacenado
             objSelectCmd.CommandType = CommandType.StoredProcedure;
             objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _id;
-            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarString).Value = _nombre;
-            objSelectCmd.Parameters.Add("v_contacto", MySqlDbType.VarString).Value = _contacto;
-            objSelectCmd.Parameters.Add("v_telefono", MySqlDbType.VarString).Value = _telefono;
-            objSelectCmd.Parameters.Add("v_direccion", MySqlDbType.VarString).Value = _direccion;
+            objSelectCmd.Parameters.Add("v_nombre", MySqlDbType.VarChar).Value = _nombre;
+            objSelectCmd.Parameters.Add("v_contacto", MySqlDbType.VarChar).Value = _contacto;
+            objSelectCmd.Parameters.Add("v_telefono", MySqlDbType.VarChar).Value = _telefono;
+            objSelectCmd.Parameters.Add("v_direccion", MySqlDbType.VarChar).Value = _direccion;
 
             try
             {
@@ -108,16 +108,16 @@ namespace Data
         }
 
         // Método para borrar un Proveedor
-        public bool deleteProvider(int _idProvider)
+        public bool DeleteSuppliers(int _id)
         {
             bool executed = false;
             int row;
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "spDeleteProvider"; //nombre del procedimiento almacenado
+            objSelectCmd.CommandText = "procDeleteSuppliers"; //nombre del procedimiento almacenado
             objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objSelectCmd.Parameters.Add("p_id", MySqlDbType.Int32).Value = _idProvider;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _id;
 
             try
             {
@@ -135,20 +135,5 @@ namespace Data
             return executed;
         }
 
-        public DataSet ShowProviderDDL()
-        {
-            MySqlDataAdapter objAdapter = new MySqlDataAdapter();
-            DataSet objData = new DataSet();
-
-            MySqlCommand objSelectCmd = new MySqlCommand();
-            objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procShowSuppliersDDL";
-            objSelectCmd.CommandType = CommandType.StoredProcedure;
-            objAdapter.SelectCommand = objSelectCmd;
-            objAdapter.Fill(objData);
-            objPer.closeConnection();
-            return objData;
-
-        }
     }
 }

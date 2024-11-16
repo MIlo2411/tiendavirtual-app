@@ -22,7 +22,7 @@ namespace Data
 
 
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procShowDetallesPedido"; //nombre del procedimiento almacenado
+            objSelectCmd.CommandText = "spSelectDetailsOrders"; //nombre del procedimiento almacenado
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             objAdapter.SelectCommand = objSelectCmd;
@@ -41,14 +41,14 @@ namespace Data
 
             MySqlCommand objInsertCmd = new MySqlCommand();
             objInsertCmd.Connection = objPer.openConnection();
-            objInsertCmd.CommandText = "procInsertDetallePedido"; //nombre del procedimiento almacenado
+            objInsertCmd.CommandText = "spInsertDetailsOrder"; //nombre del procedimiento almacenado
             objInsertCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agregan parámetros al comando para pasar los valores del detalle de pedido.
-            objInsertCmd.Parameters.Add("v_cantidad", MySqlDbType.Int32).Value = _detCantidad;
-            objInsertCmd.Parameters.Add("v_precio", MySqlDbType.Double).Value = _detPrecio;
-            objInsertCmd.Parameters.Add("v_pedido_id", MySqlDbType.Int32).Value = _fkPedido;
-            objInsertCmd.Parameters.Add("v_producto_id", MySqlDbType.Int32).Value = _fkProducto;
+            objInsertCmd.Parameters.Add("p_det_cantidad", MySqlDbType.Int32).Value = _detCantidad;
+            objInsertCmd.Parameters.Add("p_det_precio", MySqlDbType.Double).Value = _detPrecio;
+            objInsertCmd.Parameters.Add("p_fk_pedido", MySqlDbType.Int32).Value = _fkPedido;
+            objInsertCmd.Parameters.Add("p_fk_producto", MySqlDbType.Int32).Value = _fkProducto;
 
             try
             {
@@ -75,15 +75,15 @@ namespace Data
 
             MySqlCommand objUpdateCmd = new MySqlCommand();
             objUpdateCmd.Connection = objPer.openConnection();
-            objUpdateCmd.CommandText = "procUpdateDetallePedido"; //nombre del procedimiento almacenado
+            objUpdateCmd.CommandText = "spUpdateDetailsOrder"; //nombre del procedimiento almacenado
             objUpdateCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agregan parámetros al comando para pasar los valores del detalle de pedido.
-            objUpdateCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _detId;
-            objUpdateCmd.Parameters.Add("v_cantidad", MySqlDbType.Int32).Value = _detCantidad;
-            objUpdateCmd.Parameters.Add("v_precio", MySqlDbType.Double).Value = _detPrecio;
-            objUpdateCmd.Parameters.Add("v_pedido_id", MySqlDbType.Int32).Value = _fkPedido;
-            objUpdateCmd.Parameters.Add("v_producto_id", MySqlDbType.Int32).Value = _fkProducto;
+            objUpdateCmd.Parameters.Add("p_det_id", MySqlDbType.Int32).Value = _detId;
+            objUpdateCmd.Parameters.Add("p_det_cantidad", MySqlDbType.Int32).Value = _detCantidad;
+            objUpdateCmd.Parameters.Add("p_det_precio", MySqlDbType.Double).Value = _detPrecio;
+            objUpdateCmd.Parameters.Add("p_fk_pedido", MySqlDbType.Int32).Value = _fkPedido;
+            objUpdateCmd.Parameters.Add("p_fk_producto", MySqlDbType.Int32).Value = _fkProducto;
 
             try
             {
@@ -112,11 +112,11 @@ namespace Data
             // Se crea un comando MySQL para eliminar un detalle de pedido utilizando un procedimiento almacenado.
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procDeleteDetallePedido"; // nombre del procedimiento almacenado
+            objSelectCmd.CommandText = "spDeleteDetailsOrder"; // nombre del procedimiento almacenado
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agrega un parámetro al comando para pasar el ID del detalle del pedido que se desea eliminar.
-            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _detId;
+            objSelectCmd.Parameters.Add("p_detId", MySqlDbType.Int32).Value = _detId;
 
             try
             {
@@ -139,7 +139,7 @@ namespace Data
             return executed;
         }
 
-        public DataSet ShowDetallesPedidoDDL()
+        public DataSet procShowDetallesPedidoDDL()
         {
             MySqlDataAdapter objAdapter = new MySqlDataAdapter();
             DataSet objData = new DataSet();

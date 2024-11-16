@@ -30,12 +30,13 @@ namespace Presentation
         private string _comentario, _fecha;
         private double _calificacion;
         private bool executed = false;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             /* 
-             * Se verifica si la página se está cargando por primera vez o 
-             * si es una devolución de datos del servidor.
-             */
+            * Se verifica si la página se está cargando por primera vez o 
+            * si es una devolución de datos del servidor.
+            */
             if (!Page.IsPostBack)
             {
                 ShowComment();//Se invoca el metodo para mostrar todos los productos
@@ -44,13 +45,13 @@ namespace Presentation
                 // Se oculta el campo de texto TBId.
                 //TBId.Visible = false;
             }
-        }
 
+        }
         private void ShowClientsDDL()
         {
             // Se asigna el origen de datos al DropDownList,
             // utilizando el método showCategoriesDDL de la instancia objCat de la clase CategoryLog.
-            DDLClients.DataSource = objCli.ShowClientsDDL();
+            DDLClients.DataSource = objCli.ProcShowClientsDDL();
 
             // Se especifica el campo que se utilizará como valor de cada elemento del DropDownList.
             DDLClients.DataValueField = "cli_id";
@@ -83,7 +84,7 @@ namespace Presentation
         private void ShowComment()
         {
             DataSet ds = new DataSet();
-            ds = objComm.ShowComments();
+            ds = objComm.ShowComment();
             GVComments.DataSource = ds;
             GVComments.DataBind();
         }
@@ -96,6 +97,7 @@ namespace Presentation
             DDLProducts.SelectedIndex = 0;
             DDLClients.SelectedIndex = 0;
         }
+
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
@@ -118,10 +120,14 @@ namespace Presentation
                 LblMsj.Text = "Error al guardar!";
 
             }
+
+
+
         }
 
         protected void BtnUpdate_Click(object sender, EventArgs e)
         {
+
             _id = Convert.ToInt32(HFCommentId.Value); //lave primaria
             _comentario = TBComment.Text; //capturar el valor que se ingrese en el text box 
             _calificacion = Convert.ToDouble(TBCalification.Text);
@@ -142,6 +148,7 @@ namespace Presentation
                 LblMsj.Text = "Error al actualizar!";
 
             }
+
         }
 
         protected void GVComments_SelectedIndexChanged(object sender, EventArgs e)
@@ -153,5 +160,7 @@ namespace Presentation
             DDLProducts.SelectedValue = GVComments.SelectedRow.Cells[4].Text;
             DDLClients.SelectedValue = GVComments.SelectedRow.Cells[5].Text;
         }
+
+    
     }
 }

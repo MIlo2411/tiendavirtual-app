@@ -21,11 +21,8 @@ namespace Presentation
         private double _precio;
         private int _id, _stock, _proveedor_Id, _categoria_Id;
 
-        
-
         private bool executed = false;
 
-        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,9 +35,12 @@ namespace Presentation
                 // Se oculta el campo de texto TBId.
                 //TBId.Visible = false;
             }
-        
-        
+
+
+
         }
+
+
 
         // Mostrar las categorias en el DDL
 
@@ -68,20 +68,11 @@ namespace Presentation
         
         private void ShowProviderDDL()
         {
-<<<<<<< HEAD
-            DDLProviders.DataSource = objProv.ShowProviderDDL();    
+            DDLProviders.DataSource = objProv.showProvidersDDL();
             DDLProviders.DataValueField = "prov_id";//Nombre de la llave primaria
-            DDLProviders.DataTextField = "prov_nombre";
+            DDLProviders.DataTextField = "Nombre";
             DDLProviders.DataBind();
             DDLProviders.Items.Insert(0, "Seleccione");
-=======
-         DDLProviders.DataSource = objProv.ShowProviderDDL();    
-        DDLProviders.DataValueField = "prov_id";//Nombre de la llave primaria
-        DDLProviders.DataTextField = "prov_nombre";
-        DDLProviders.DataBind();
-        DDLProviders.Items.Insert(0, "Seleccione");
-        DDLProviders.DataBind();
->>>>>>> 880f6094283c914010a7e901a161ca49b51b3778
 
         }
 
@@ -105,21 +96,19 @@ namespace Presentation
             DDLProviders.SelectedIndex = 0;
             DDLCategories.SelectedIndex = 0;
         }
-
-        //Evento para guardar cuando uno le de click
         protected void BtnSave_Click(object sender, EventArgs e)
         {
-            
+
             _nombre = TBNombre.Text;
             _descripcion = TBDescription.Text;
-            _precio = Convert.ToInt32(TBPrice.Text);
+            _precio = Convert.ToDouble(TBPrice.Text);
             _stock = Convert.ToInt32(TBStock.Text);
             _imagen = TBtImg.Text;
             _proveedor_Id = Convert.ToInt32(DDLProviders.Text);
             _categoria_Id = Convert.ToInt32(DDLCategories.Text);
 
             executed = objProd.InsertProduct(_nombre, _descripcion, _precio, _stock, _imagen, _proveedor_Id, _categoria_Id);
-            
+
 
             if (executed)
             {
@@ -132,34 +121,38 @@ namespace Presentation
                 LblMsj.Text = "¡Error al guardar!";
             }
 
+
         }
 
-        //Evento para actualizar cuando uno le de click
         protected void BtnUpdate_Click(object sender, EventArgs e)
         {
-            _id = Convert.ToInt32(HFProductId.Value);
-            _nombre = TBNombre.Text;
-            _descripcion = TBDescription.Text;
-            _precio = Convert.ToDouble(TBPrice.Text);
-            _stock = Convert.ToInt32(TBStock.Text);
-            _imagen = TBtImg.Text;
-           
 
-            executed = objProd.UpdateProduct(_id, _nombre, _descripcion, _precio, _stock, _imagen);
-
-
-            if (executed)
             {
-                LblMsj.Text = "¡El Producto se actualizo exitosamente!";
-                clear(); // Limpiar los TextBox después de guardar
-                ShowProducts();// Mostrar los carritos actualizados
-            }
-            else
-            {
-                LblMsj.Text = "¡Error al actualizar!";
-            }
+                _id = Convert.ToInt32(HFProductId.Value);
+                _nombre = TBNombre.Text;
+                _descripcion = TBDescription.Text;
+                _precio = Convert.ToDouble(TBPrice.Text);
+                _stock = Convert.ToInt32(TBStock.Text);
+                _imagen = TBtImg.Text;
 
 
+                executed = objProd.UpdateProduct(_id, _nombre, _descripcion, _precio, _stock, _imagen);
+
+
+                if (executed)
+                {
+                    LblMsj.Text = "¡El Producto se actualizo exitosamente!";
+                    clear(); // Limpiar los TextBox después de guardar
+                    ShowProducts();// Mostrar los carritos actualizados
+                }
+                else
+                {
+                    LblMsj.Text = "¡Error al actualizar!";
+                }
+
+
+
+            }
 
         }
 
@@ -183,13 +176,9 @@ namespace Presentation
             {
                 DDLCategories.SelectedValue = GVProducts.SelectedRow.Cells[7].Text;
             }
-            
 
         }
 
-        
 
     }
-
-
 }

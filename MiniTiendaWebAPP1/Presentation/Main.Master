@@ -10,20 +10,23 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    "
     <form id="form1" runat="server">
-<%--aqui va lo que se repite en los demas formularios--%>
-  <a href="#">Inicio</a>
-  <a href="WFCar.aspx">Carrito</a>
-  <a href="WFCategory.aspx">Categorias</a>
-  <a href="WFClient.aspx">Clientes</a>
-  <a href="WFComments.aspx">Comentarios</a>
-  <a href="WFDetailsOrders">Detalles Pedidos</a>
-  <a href="WFOrder">Ordenes</a>
-  <a href="WFPay.aspx">Pagos</a>
-  <a href="WFProducts.aspx">Productos</a>
-  <a href="WFProviders.aspx">Provedores</a>       
-  <div>
-
-</form>
+        <%--aqui va lo que se repite en los demas formularios--%>
+        <a href="#">Inicio</a>
+        <a href="WFCar.aspx">Carrito</a>
+        <a href="WFCategory.aspx">Categorias</a>
+        <a href="WFClient.aspx">Clientes</a>
+        <a href="WFComments.aspx">Comentarios</a>
+        <a href="WFDetailsOrder.aspx">Detalles Pedidos</a>
+        <a href="WFOrder.aspx">Ordenes</a>
+        <a href="WFPay.aspx">Pagos</a>
+        <a href="WFProducts.aspx">Productos</a>
+        <a href="WFProviders.aspx">Proveedores</a>       
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
 </body>
 </html>

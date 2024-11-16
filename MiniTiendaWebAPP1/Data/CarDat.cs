@@ -64,7 +64,7 @@ namespace Data
             // Se agregan parámetros al comando para pasar los valores del carrito.
             objSelectCmd.Parameters.Add("v_cantidad", MySqlDbType.Int32).Value = _cantidad;
             objSelectCmd.Parameters.Add("v_Producto_id", MySqlDbType.Int32).Value = _fkProduct;
-            objSelectCmd.Parameters.Add("v_Cliente_id", MySqlDbType.Int32).Value = _fkClient;
+            objSelectCmd.Parameters.Add("v_cliente_id", MySqlDbType.Int32).Value = _fkClient;
 
             try
             {
@@ -101,7 +101,7 @@ namespace Data
             // Se agregan parámetros al comando para pasar los valores del carrito.
             objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _id;
             objSelectCmd.Parameters.Add("v_cantidad", MySqlDbType.Int32).Value = _cantidad;
-            objSelectCmd.Parameters.Add("v_producto_id", MySqlDbType.Int32).Value = _fkProduct;
+            objSelectCmd.Parameters.Add("v_Producto_id", MySqlDbType.Int32).Value = _fkProduct;
             objSelectCmd.Parameters.Add("v_cliente_id", MySqlDbType.Int32).Value = _fkClient;
 
             try
@@ -131,11 +131,11 @@ namespace Data
             // Se crea un comando MySQL para eliminar un carrito utilizando un procedimiento almacenado.
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procDeleteCarrito"; // nombre del procedimiento almacenado
+            objSelectCmd.CommandText = "spDeleteCar"; // nombre del procedimiento almacenado
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agrega un parámetro al comando para pasar el ID del carrito que se desea eliminar.
-            objSelectCmd.Parameters.Add("p_idCar", MySqlDbType.Int32).Value = _idCar;
+            objSelectCmd.Parameters.Add("v_idCar", MySqlDbType.Int32).Value = _idCar;
 
             try
             {

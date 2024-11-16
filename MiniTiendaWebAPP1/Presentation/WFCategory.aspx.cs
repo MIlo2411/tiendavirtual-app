@@ -1,6 +1,5 @@
 ﻿using Logic;
 using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -17,10 +16,8 @@ namespace Presentation
 
         private int _id;
         private string _nombre;
-        private string _description;
+        private string _descripcion;
         private bool executed = false;
-
-        // Bandera para saber si la operación fue exitosa
         protected void Page_Load(object sender, EventArgs e)
         {
             // Solo se ejecuta cuando se carga la página por primera vez (no en postbacks)
@@ -36,25 +33,24 @@ namespace Presentation
             objData = objCat.ShowCategories();// Obtiene todas las categorías
             GVCategories.DataSource = objData;         // Asigna el DataSet al GridView
             GVCategories.DataBind();              // Enlaza los datos con el GridView
-        }
-
+        
+    }
         //Metodo para limpiar los TextBox y los DDL
         private void Clear()
         {
             HFCategoryId.Value = "";
             TBNombre.Text = "";  // Limpiar el
             TBDescripcion.Text = "";
-          
-
 
         }
         protected void BtnSave_Click(object sender, EventArgs e)
         {
+
             // Captura el nombre de la categoría
             _nombre = TBNombre.Text;
-            _description = TBDescripcion.Text;
+            _descripcion = TBDescripcion.Text;
             // Llamada a la lógica  para guardar la categoría
-            executed = objCat.SaveCategory(_nombre,_description);
+            executed = objCat.SaveCategory(_nombre, _descripcion);
 
             if (executed)
             {
@@ -71,13 +67,14 @@ namespace Presentation
 
         }
 
+
         protected void BtnUpdate_Click(object sender, EventArgs e)
         {
             _id = Convert.ToInt32(HFCategoryId.Value);  // Obtener el ID de la categoría seleccionada
             _nombre = TBNombre.Text;    // Obtener el nombre de la categoría
-
+            _descripcion = TBDescripcion.Text;
             // Llamada a la lógica de negocio para actualizar la categoría
-            executed = objCat.UpdateCategory(_id, _nombre, _description);
+            executed = objCat.UpdateCategory(_id, _nombre, _descripcion);
 
             if (executed)
             {
@@ -91,6 +88,7 @@ namespace Presentation
                 LblMsj.Text = "¡Error al actualizar la categoría!";
                 LblMsj.ForeColor = System.Drawing.Color.Red;
             }
+
         }
         // Evento para seleccionar una fila en el GridView y cargar los datos en los controles
         protected void GVCategories_SelectedIndexChanged(object sender, EventArgs e)

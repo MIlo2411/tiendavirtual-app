@@ -1,57 +1,52 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WFOrder.aspx.cs" Inherits="Presentation.WFOrder" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="WFOrder.aspx.cs" Inherits="Presentation.WPOrder" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <h1>Gestion de ordenes</h1>
+    <div>
+        <%--ID--%>
+        <asp:HiddenField ID="HFOrderId" runat="server" />
 
-<!DOCTYPE html>
+        <%--fecha--%>
+        <asp:Label ID="Label1" runat="server" Text="Ingrese la fecha"></asp:Label>
+        <asp:TextBox ID="TBFecha" runat="server"></asp:TextBox>
+        <br />
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-            <%--ID--%>
-            <asp:HiddenField ID="HFOrderId" runat="server" />
+        <%--estado--%>
+        <asp:Label ID="Label2" runat="server" Text="Ingrese el estado"></asp:Label>
+        <asp:TextBox ID="TBEstado" runat="server"></asp:TextBox>
+        <br />
 
-            <%--fecha--%>
-            <asp:Label ID="Label1" runat="server" Text="Ingrese la fecha"></asp:Label>
-            <asp:TextBox ID="TBFecha" runat="server"></asp:TextBox>
-            <br />
+        <%--Total--%>
+        <asp:Label ID="Label4" runat="server" Text="Ingrese el total"></asp:Label>
+        <asp:TextBox ID="TBTotal" runat="server"></asp:TextBox>
+        <br />
 
-            <%--estado--%>
-            <asp:Label ID="Label2" runat="server" Text="Ingrese el estado"></asp:Label>
-            <asp:TextBox ID="TBEstado" runat="server"></asp:TextBox>
-            <br />
-
-            <%--Total--%>
-            <asp:Label ID="Label4" runat="server" Text="Ingrese el total"></asp:Label>
-            <asp:TextBox ID="TBTotal" runat="server"></asp:TextBox>
-            <br />
-
-            <%--Clientes--%>
-            <asp:Label ID="Label7" runat="server" Text="Seleccione el cliente"></asp:Label>
-            <asp:DropDownList ID="DDLClients" runat="server"></asp:DropDownList>
-            <br />
+        <%--Clientes--%>
+        <asp:Label ID="Label7" runat="server" Text="Seleccione el cliente"></asp:Label>
+        <asp:DropDownList ID="DDLClients" runat="server"></asp:DropDownList>
+        <br />
 
 
-            <asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />
-            <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" OnClick="BtnUpdate_Click" />
-            <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
-            <br />
+        <asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />
+        <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" OnClick="BtnUpdate_Click" />
+        <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
+        <br />
 
-            <%--Lista de productos--%>
-            <asp:GridView ID="GVOrders" runat="server" OnSelectedIndexChanged="GVComments_SelectedIndexChanged" AutoGenerateColumns="False">
-                <Columns>
-                    <asp:BoundField DataField="ped_id" HeaderText="Id" />
-                    <asp:BoundField DataField="ped_fecha" HeaderText="Fecha" />
-                    <asp:BoundField DataField="ped_estado" HeaderText="estado" />
-                    <asp:BoundField DataField="ped_total" HeaderText="total" />
-                    <asp:BoundField DataField="tbl_clientes_cli_id" HeaderText="Cliente" />
-                    <asp:CommandField ShowSelectButton="True"></asp:CommandField>
-                    <asp:CommandField ShowDeleteButton="True"></asp:CommandField>
-                </Columns>
-            </asp:GridView>
-        </div>
-    </form>
-</body>
-</html>
+        <%--Lista de productos--%>
+        <asp:GridView ID="GVOrders" runat="server" OnSelectedIndexChanged="GVComments_SelectedIndexChanged" AutoGenerateColumns="False">
+            <Columns>
+                <asp:BoundField DataField="ped_id" HeaderText="Id" />
+                <asp:BoundField DataField="ped_fecha" HeaderText="Fecha" />
+                <asp:BoundField DataField="ped_estado" HeaderText="estado" />
+                <asp:BoundField DataField="ped_total" HeaderText="total" />
+                <asp:BoundField DataField="tbl_clientes_cli_id" HeaderText="Cliente" />
+                <asp:CommandField ShowSelectButton="True"></asp:CommandField>
+                <asp:CommandField ShowDeleteButton="True"></asp:CommandField>
+            </Columns>
+        </asp:GridView>
+    </div>
+
+
+
+</asp:Content>

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="WFProviders.aspx.cs" Inherits="Presentation.WFProviders" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -19,12 +20,12 @@
         <br />
 
         <%-- telefono --%>
-        <asp:Label ID="Label5" runat="server" Text="Ingrese el Telefono"></asp:Label>
+        <asp:Label ID="Label5" runat="server" Text="Ingrese el telefono"></asp:Label>
         <asp:TextBox ID="TBTelefono" runat="server"></asp:TextBox>
         <br />
 
         <%-- dirrecion --%>
-        <asp:Label ID="Label4" runat="server" Text="Ingrese la dirección"></asp:Label>
+        <asp:Label ID="Label4" runat="server" Text="Ingrese la direccion"></asp:Label>
         <asp:TextBox ID="TBDireccion" runat="server"></asp:TextBox>
         <br />
 
@@ -32,7 +33,7 @@
         <asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />
         <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" OnClick="BtnUpdate_Click" />
         <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
-        
+
 
         <br />
 
@@ -43,13 +44,13 @@
                 <asp:BoundField DataField="prov_nombre" HeaderText="Nombre" />
                 <asp:BoundField DataField="prov_contacto" HeaderText="Contacto" />
                 <asp:BoundField DataField="prov_telefono" HeaderText="Telefono" />
-                <asp:BoundField DataField="prov_direccion" HeaderText="Dirección" />                
+                <asp:BoundField DataField="prov_direccion" HeaderText="Direccion" />
                 <asp:CommandField ShowSelectButton="True"></asp:CommandField>
                 <asp:CommandField ShowDeleteButton="True"></asp:CommandField>
-               </Columns>
-</asp:GridView>
+            </columns>
+        </asp:GridView>
 
 
-</div>
+    </div>
 
 </asp:Content>

@@ -6,10 +6,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
 namespace Presentation
 {
-    public partial class WFCar
- : System.Web.UI.Page
+    public partial class WFCar : System.Web.UI.Page
     {
         CarLog objCarrito = new CarLog();
         ClientLog objCust = new ClientLog();
@@ -19,6 +19,7 @@ namespace Presentation
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             if (!Page.IsPostBack)
             {
                 ShowCars();
@@ -53,6 +54,7 @@ namespace Presentation
             GVCarrito.DataBind();
         }
 
+        
         private void clear()
         {
             HFCarId.Value = "";
@@ -61,26 +63,7 @@ namespace Presentation
             DDLClientes.SelectedIndex = 0;
         }
 
-        protected void BtnUpdate_Click(object sender, EventArgs e)
-        {
-            _id = Convert.ToInt32(HFCarId.Value);
-            _cantidad = Convert.ToInt32(TBCantidad.Text);
-            _fkProduct = Convert.ToInt32(DDLProductos.SelectedValue);
-            _fkClient = Convert.ToInt32(DDLClientes.SelectedValue);
-
-            bool executed = objCarrito.UpdateCars(_id, _cantidad, _fkProduct, _fkClient);
-
-            if (executed)
-            {
-                LblMsj.Text = "¡El carrito se actualizó exitosamente!";
-                clear();
-                ShowCars();
-            }
-            else
-            {
-                LblMsj.Text = "¡Error al actualizar!";
-            }
-        }
+    
 
         protected void BtnSave_Click(object sender, EventArgs e)
         {
@@ -100,11 +83,33 @@ namespace Presentation
             {
                 LblMsj.Text = "¡Error al guardar!";
             }
+
+
         }
 
+        protected void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            
+            _id = Convert.ToInt32(HFCarId.Value);
+            _cantidad = Convert.ToInt32(TBCantidad.Text);
+            _fkProduct = Convert.ToInt32(DDLProductos.SelectedValue);
+            _fkClient = Convert.ToInt32(DDLClientes.SelectedValue);
 
-       
+            bool executed = objCarrito.UpdateCars(_id, _cantidad, _fkProduct, _fkClient);
 
+            if (executed)
+            {
+                LblMsj.Text = "¡El carrito se actualizó exitosamente!";
+                clear();
+                ShowCars();
+            }
+            else
+            {
+                LblMsj.Text = "¡Error al actualizar!";
+            }
+
+
+        }
         protected void GVCarrito_SelectedIndexChanged1(object sender, EventArgs e)
         {
             HFCarId.Value = GVCarrito.SelectedRow.Cells[0].Text;
@@ -128,5 +133,6 @@ namespace Presentation
                 LblMsj.Text = "¡Error al eliminar!";
             }
         }
+
     }
 }

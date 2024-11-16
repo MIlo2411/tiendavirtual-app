@@ -9,14 +9,16 @@ using System.Web.UI.WebControls;
 
 namespace Presentation
 {
+
     public partial class WFPay : System.Web.UI.Page
     {
+
         OrderLog objord = new OrderLog();
         PayLog objPay = new PayLog();
 
         private int _id, _pedidos_ped_id;
-        private double _monto;
-        private string _fecha, _metodo_pago;
+        private double _monto; 
+        private string _metodo_pago, _fecha;
 
         private bool executed = false;
 
@@ -34,6 +36,7 @@ namespace Presentation
 
 
         }
+
         private void ShowOderDDL()
         {
             // Se asigna el origen de datos al DropDownList,
@@ -46,7 +49,7 @@ namespace Presentation
 
 
             // Se especifica el campo que se mostrará como texto para cada elemento del DropDownList.
-            DDLPedidos.DataTextField = "ped_fecha";
+            DDLPedidos.DataTextField = "ped_estado";
 
             // Se enlaza el origen de datos con el DropDownList.
             DDLPedidos.DataBind();
@@ -73,16 +76,16 @@ namespace Presentation
 
         }
 
-
         protected void BtnSave_Click(object sender, EventArgs e)
         {
-            
+
+            _id = Convert.ToInt32(HFPagos.Value);
             _monto = Convert.ToDouble(TBmonto.Text);
-            _fecha = TBfecha.Text;
+            _fecha = Convert.ToString(TBfecha.Text);
             _metodo_pago = TBPago.Text;
             _pedidos_ped_id = Convert.ToInt32(DDLPedidos.Text);
 
-            executed = objPay.savePay( _monto, _fecha, _metodo_pago, _pedidos_ped_id);
+            executed = objPay.savePay(_id, _monto, _fecha, _metodo_pago, _pedidos_ped_id);
 
 
             if (executed)
@@ -99,17 +102,13 @@ namespace Presentation
             }
         }
 
-
-
-
     
 
-    protected void BtnUpdate_Click(object sender, EventArgs e)
+        protected void BtnUpdate_Click(object sender, EventArgs e)
         {
-
             _id = Convert.ToInt32(HFPagos.Value);
             _monto = Convert.ToDouble(TBmonto.Text);
-            _fecha = TBfecha.Text;
+            _fecha = Convert.ToString(TBfecha.Text);
             _metodo_pago = TBPago.Text;
             _pedidos_ped_id = Convert.ToInt32(DDLPedidos.Text);
 
@@ -134,6 +133,7 @@ namespace Presentation
 
         protected void GVPagos_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             // Asignar el valor de la fila seleccionada a los controles
             HFPagos.Value = GVPagos.SelectedRow.Cells[0].Text;
             TBmonto.Text = GVPagos.SelectedRow.Cells[1].Text;
@@ -145,7 +145,6 @@ namespace Presentation
             {
                 DDLPedidos.SelectedValue = GVPagos.SelectedRow.Cells[4].Text;
             }
-
         }
     }
 }

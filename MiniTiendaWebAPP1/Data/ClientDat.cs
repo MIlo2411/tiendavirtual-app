@@ -47,7 +47,7 @@ namespace Data
             objSelectCmd.Parameters.Add("v_contrasena", MySqlDbType.String).Value = _contrasena;
             objSelectCmd.Parameters.Add("v_direccion", MySqlDbType.String).Value = _direccion_envio;
             objSelectCmd.Parameters.Add("v_telefono", MySqlDbType.Int32).Value = _telefono;
-           
+
 
             try
             {
@@ -89,7 +89,7 @@ namespace Data
             objSelectCmd.Parameters.Add("v_contrasena", MySqlDbType.VarChar).Value = _contrasena;
             objSelectCmd.Parameters.Add("v_direccion", MySqlDbType.VarChar).Value = _direccion_envio;
             objSelectCmd.Parameters.Add("v_telefono", MySqlDbType.Int32).Value = _telefono;
-           
+
 
             try
             {
@@ -137,7 +137,7 @@ namespace Data
             return executed;
         }
 
-        public DataSet ShowClientsDDL()
+        public DataSet ProcShowClientsDDL()
         {
             MySqlDataAdapter objAdapter = new MySqlDataAdapter();
             DataSet objData = new DataSet();

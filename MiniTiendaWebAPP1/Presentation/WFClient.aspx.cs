@@ -30,7 +30,7 @@ namespace Presentation
             if (!Page.IsPostBack)
             {
                 procShowClients(); // Mostrar todos los clientes
-                
+
             }
         }
         private void procShowClients()
@@ -54,7 +54,7 @@ namespace Presentation
         protected void BtnSave_Click(object sender, EventArgs e)
         {
             // Capturar los datos del cliente
-            
+
             _nombre = TBNombre.Text;
             _apellido = TBApellido.Text;
             _correo = TBCorreo.Text;
@@ -131,7 +131,7 @@ namespace Presentation
             {
                 LblMsj.Text = "El cliente se eliminó exitosamente";
                 GVClientes.EditIndex = -1;
-                    procShowClients();
+                procShowClients();
             }
             else
             {
