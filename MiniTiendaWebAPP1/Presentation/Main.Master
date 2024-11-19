@@ -88,6 +88,8 @@
                                 <li><a class="dropdown-item" href="WFOrder.aspx">Ordenes</a></li>
                                 <li><a class="dropdown-item" href="WFPay.aspx">Pagos</a></li>
                                 <li><a class="dropdown-item" href="WFProducts.aspx">Productos</a></li>
+                                 <li><a class="dropdown-item" href="WFProviders.aspx">Proveedores</a></li>
+                                 <li><a class="dropdown-item" href="WFDashboard.aspx">Dashboard</a></li>
                                 
                             </ul>
                         </li>

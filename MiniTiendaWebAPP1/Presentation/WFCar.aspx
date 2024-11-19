@@ -10,33 +10,38 @@
         <div class="mb-3">
             <!-- HiddenField para almacenar el ID del carrito seleccionado -->
             <asp:HiddenField ID="HFCarId" runat="server" />
-            <asp:DropDownList ID="DDLClientes" runat="server"></asp:DropDownList>
-            <asp:DropDownList ID="DDLProductos" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="DDLClientes" runat="server" CssClass="form-select"></asp:DropDownList>
+            <asp:DropDownList ID="DDLProductos" runat="server" CssClass="form-select"></asp:DropDownList>
         </div>
 
         <div class="mb-3">
             <!-- Cantidad del Carrito -->
-            <asp:Label ID="LabelCantidad" runat="server" Text="Cantidad:"></asp:Label>
-            <asp:TextBox ID="TBCantidad" runat="server"></asp:TextBox>
+            <asp:Label ID="LabelCantidad" runat="server" Text="Cantidad:" CssClass="form-label"></asp:Label>
+            <asp:TextBox ID="TBCantidad" runat="server" CssClass="form-control"  Placeholder="Ingrese la cantidad"></asp:TextBox>
             <br />
         </div>
 
         <div class="mb-3 text-center">
             <!-- Botones para guardar y actualizar carritos -->
-            <asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />
-            <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" OnClick="BtnUpdate_Click" />
-            <asp:Label ID="LblMsj" runat="server" Text="" ForeColor="Red"></asp:Label>
+            <asp:Button ID="BtnSave" runat="server" Text="Guardar" CssClass="btn btn-success mx-2" OnClick="BtnSave_Click" />
+            <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" CssClass="btn btn-primary mx-2" OnClick="BtnUpdate_Click" />
+            <asp:Label ID="LblMsj" runat="server" Text="" CssClass="text-success" ForeColor="Red"></asp:Label>
             <br />
         </div>
 
         <div class="mt-4">
-            <asp:GridView ID="GVCarrito" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GVCarrito_SelectedIndexChanged1">
+            <asp:GridView ID="GVCarrito" runat="server" AutoGenerateColumns="False" CssClass="table table-striped table-hover" OnSelectedIndexChanged="GVCarrito_SelectedIndexChanged1">
                 <Columns>
-                    <asp:BoundField DataField="car_id" HeaderText="ID" runat="server" />
-                    <asp:BoundField DataField="car_cantidad" HeaderText="Cantidad" runat="server" />
-                    <asp:BoundField DataField="tbl_productos_pro_id" HeaderText="Producto ID" runat="server" />
-                    <asp:BoundField DataField="tbl_clientes_cli_id" HeaderText="Cliente ID" runat="server" />
-                    <asp:CommandField ShowSelectButton="True" ShowDeleteButton="True" runat="server" />
+                    <asp:BoundField DataField="car_id" HeaderText="ID" runat="server" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" />
+                    <asp:BoundField DataField="car_cantidad" HeaderText="Cantidad" runat="server" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" />
+                    <asp:BoundField DataField="tbl_productos_pro_id" HeaderText="Producto ID" runat="server" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" />
+                    <asp:BoundField DataField="tbl_clientes_cli_id" HeaderText="Cliente ID" runat="server" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" />
+                    <asp:CommandField ShowSelectButton="True" ButtonType="Button"
+                        SelectText="Seleccionar"
+                        ControlStyle-CssClass="btn btn-info btn-sm" />
+                    <asp:CommandField ShowDeleteButton="True" ButtonType="Button"
+                        DeleteText="Eliminar"
+                        ControlStyle-CssClass="btn btn-danger btn-sm" />
                 </Columns>
             </asp:GridView>
         </div>

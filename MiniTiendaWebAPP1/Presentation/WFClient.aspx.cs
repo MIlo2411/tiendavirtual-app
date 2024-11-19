@@ -20,7 +20,7 @@ namespace Presentation
         private string _correo;
         private string _contrasena;
         private string _direccion_envio;
-        private int _telefono;
+        private string _telefono;
 
         // Bandera para saber si la operación fue exitosa
         private bool executed = false;
@@ -60,7 +60,7 @@ namespace Presentation
             _correo = TBCorreo.Text;
             _contrasena = TBContrasena.Text;
             _direccion_envio = TBDireccion.Text;
-            _telefono = Convert.ToInt32(TBTelefono.Text);
+            _telefono = Convert.ToString(TBTelefono.Text);
 
             // Llamada a la lógica para guardar el cliente
 
@@ -89,7 +89,7 @@ namespace Presentation
             _correo = TBCorreo.Text;
             _contrasena = TBContrasena.Text;
             _direccion_envio = TBDireccion.Text;
-            _telefono = Convert.ToInt32(TBTelefono.Text);
+            _telefono = Convert.ToString(TBTelefono.Text);
 
 
             // Llamada a la lógica de negocio para actualizar el cliente
