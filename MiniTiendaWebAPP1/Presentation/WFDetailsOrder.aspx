@@ -3,38 +3,51 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <h1>Gestion de carrito</h1>
+    
+     <h1 class="text-center mb-4">Gestion detalles pedidos</h1>
 
-    <div>
+ <div class="container">
+     <div class="mb-3">
+   
+    
 
         <%--ID--%>
         <asp:HiddenField ID="HFDetailsOrdersID" runat="server" />
-
+         </div>
+         <div class="mb-3">
         <%--Cantidad--%>
         <asp:Label ID="Label4" runat="server" Text="Ingrese la cantidad"></asp:Label>
         <asp:TextBox ID="TBQuantity" runat="server"></asp:TextBox>
         <br />
 
+             </div>
+             <div class="mb-3">
         <%--Precio--%>
         <asp:Label ID="Label5" runat="server" Text="Ingrese el precio"></asp:Label>
         <asp:TextBox ID="TBPrice" runat="server"></asp:TextBox>
         <br />
+                 </div>
+                 <div class="mb-3">
+
 
         <%--pedido--%>
         <asp:Label ID="Label6" runat="server" Text="Seleccione el pedido"></asp:Label>
         <asp:DropDownList ID="DDLOrders" runat="server"></asp:DropDownList>
         <br />
-
+                     </div>
+                     <div class="mb-3">
         <%--producto--%>
         <asp:Label ID="Label7" runat="server" Text="Seleccione el producto"></asp:Label>
         <asp:DropDownList ID="DDLProducts" runat="server"></asp:DropDownList>
         <br />
-
+                         </div>
+                         <div class="mb-3 text-center">
         <asp:Button ID="BtnSave" runat="server" Text="Guardar" OnClick="BtnSave_Click" />
         <asp:Button ID="BtnUpdate" runat="server" Text="Actualizar" OnClick="BtnUpdate_Click" />
         <asp:Label ID="LblMsj" runat="server" Text=""></asp:Label>
         <br />
-
+                             </div>
+<div class="mt-4">
         <%--Lista de productos--%>
         <asp:GridView ID="GVDetailsOrders" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GVDetailsOrders_SelectedIndexChanged">
             <Columns>
@@ -50,6 +63,6 @@
             </Columns>
         </asp:GridView>
 
-
+    </div>
     </div>
 </asp:Content>
