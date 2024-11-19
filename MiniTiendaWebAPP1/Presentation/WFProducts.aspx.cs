@@ -68,7 +68,7 @@ namespace Presentation
         
         private void ShowProviderDDL()
         {
-            DDLProviders.DataSource = objProv.showProvidersDDL();
+            DDLProviders.DataSource = objProv.ShowSuppliersDDL();
             DDLProviders.DataValueField = "prov_id";//Nombre de la llave primaria
             DDLProviders.DataTextField = "Nombre";
             DDLProviders.DataBind();
