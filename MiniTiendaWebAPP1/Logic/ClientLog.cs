@@ -17,12 +17,12 @@ namespace Logic
             return objcli.procShowClients();
         }
 
-        public bool SaveClients(string _nombre, string _apellido, string _correo, string _contrasena, string _direccion_envio, int _telefono)
+        public bool SaveClients(string _nombre, string _apellido, string _correo, string _contrasena, string _direccion_envio, string _telefono)
         {
             return objcli.SaveClients(_nombre, _apellido, _correo, _contrasena, _direccion_envio, _telefono);
         }
 
-        public bool UpdateClients(int _id, string _nombre, string _apellido, string _correo, string _contrasena, string _direccion_envio, int _telefono)
+        public bool UpdateClients(int _id, string _nombre, string _apellido, string _correo, string _contrasena, string _direccion_envio, string _telefono)
         {
             return objcli.UpdateClients(_id, _nombre, _apellido, _correo, _contrasena, _direccion_envio, _telefono);
         }

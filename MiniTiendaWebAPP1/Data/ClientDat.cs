@@ -31,7 +31,7 @@ namespace Data
         }
 
         //Metodo para guardar un nuevo Producto
-        public bool SaveClients(string _nombre, string _apellido, string _correo, string _contrasena, string _direccion_envio, int _telefono)
+        public bool SaveClients(string _nombre, string _apellido, string _correo, string _contrasena, string _direccion_envio, string _telefono)
         {
             bool executed = false;
             int row;
@@ -46,7 +46,7 @@ namespace Data
             objSelectCmd.Parameters.Add("v_correo", MySqlDbType.String).Value = _correo;
             objSelectCmd.Parameters.Add("v_contrasena", MySqlDbType.String).Value = _contrasena;
             objSelectCmd.Parameters.Add("v_direccion", MySqlDbType.String).Value = _direccion_envio;
-            objSelectCmd.Parameters.Add("v_telefono", MySqlDbType.Int32).Value = _telefono;
+            objSelectCmd.Parameters.Add("v_telefono", MySqlDbType.String).Value = _telefono;
 
 
             try
@@ -71,7 +71,7 @@ namespace Data
 
 
         //Metodo para actulizar un producto
-        public bool UpdateClients(int _id, string _nombre, string _apellido, string _correo, string _contrasena, string _direccion_envio, int _telefono)
+        public bool UpdateClients(int _id, string _nombre, string _apellido, string _correo, string _contrasena, string _direccion_envio, string _telefono)
         {
             bool executed = false;
             int row;
@@ -88,7 +88,7 @@ namespace Data
             objSelectCmd.Parameters.Add("v_correo", MySqlDbType.VarChar).Value = _correo;
             objSelectCmd.Parameters.Add("v_contrasena", MySqlDbType.VarChar).Value = _contrasena;
             objSelectCmd.Parameters.Add("v_direccion", MySqlDbType.VarChar).Value = _direccion_envio;
-            objSelectCmd.Parameters.Add("v_telefono", MySqlDbType.Int32).Value = _telefono;
+            objSelectCmd.Parameters.Add("v_telefono", MySqlDbType.String).Value = _telefono;
 
 
             try
