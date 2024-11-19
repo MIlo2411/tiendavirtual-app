@@ -3,14 +3,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h1>Gestionar Categorías</h1>
-<div>
     <!-- HiddenField para almacenar el ID de la categoría seleccionada -->
     <asp:HiddenField ID="HFCategoryId" runat="server" />
-
+    <div >
     <!-- Nombre de la Categoría -->
     <asp:Label ID="Label1" runat="server" Text="Ingrese el nombre de la categoría:"></asp:Label>
     <asp:TextBox ID="TBNombre" runat="server"></asp:TextBox>
     <br />
+
     <!-- Descripción de la Categoría -->
     <asp:Label ID="Label2" runat="server" Text="Descripcion de la categoría:"></asp:Label>
     <asp:TextBox ID="TBDescripcion" runat="server"></asp:TextBox>

@@ -81,7 +81,7 @@ namespace Data
             DataSet objData = new DataSet();
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procShowCategories"; // nombre del procedimiento almacenado
+            objSelectCmd.CommandText = "procShowCategory"; // nombre del procedimiento almacenado
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             objAdapter.SelectCommand = objSelectCmd;
