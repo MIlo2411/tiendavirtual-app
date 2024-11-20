@@ -13,7 +13,7 @@ namespace Data
         Persistence objPer = new Persistence();
 
         // Método para insertar un nuevo producto
-        public bool InsertProduct(string _nombre, string _descripcion, double _precio, int _stock, string _imagen, int _proveedor_Id, int _categoria_Id)
+        public bool InsertProduct(string _nombre, string _descripcion, double _precio, int _stock,  int _proveedor_Id, int _categoria_Id)
         {
             bool executed = false;
             int row;
@@ -28,7 +28,6 @@ namespace Data
             objCmd.Parameters.Add("v_descripcion", MySqlDbType.VarChar).Value = _descripcion;
             objCmd.Parameters.Add("v_precio", MySqlDbType.Double).Value = _precio;
             objCmd.Parameters.Add("v_stock", MySqlDbType.Int32).Value = _stock;
-            objCmd.Parameters.Add("v_imagen", MySqlDbType.Text).Value = _imagen;
             objCmd.Parameters.Add("v_proveedor_id", MySqlDbType.Int32).Value = _proveedor_Id;
             objCmd.Parameters.Add("v_categoria_id", MySqlDbType.Int32).Value = _categoria_Id;
 
@@ -49,7 +48,7 @@ namespace Data
         }
 
         // Método para actualizar un producto existente
-        public bool UpdateProduct(int _id, string _nombre, string _descripcion, double _precio, int _stock, string _imagen)
+        public bool UpdateProduct(int _id, string _nombre, string _descripcion, double _precio, int _stock)
         {
             bool executed = false;
             int row;
@@ -65,7 +64,7 @@ namespace Data
             objCmd.Parameters.Add("v_descripcion", MySqlDbType.VarChar).Value = _descripcion;
             objCmd.Parameters.Add("v_precio", MySqlDbType.Double).Value = _precio;
             objCmd.Parameters.Add("v_stock", MySqlDbType.Int32).Value = _stock;
-            objCmd.Parameters.Add("v_imagen", MySqlDbType.Text).Value = _imagen;
+            
 
             try
             {

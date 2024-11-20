@@ -131,11 +131,11 @@ namespace Data
             // Se crea un comando MySQL para eliminar un carrito utilizando un procedimiento almacenado.
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "spDeleteCar"; // nombre del procedimiento almacenado
+            objSelectCmd.CommandText = "procDeleteCarrito"; // nombre del procedimiento almacenado
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agrega un parámetro al comando para pasar el ID del carrito que se desea eliminar.
-            objSelectCmd.Parameters.Add("v_idCar", MySqlDbType.Int32).Value = _idCar;
+            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _idCar;
 
             try
             {

@@ -21,6 +21,7 @@ namespace Presentation
         private string _contrasena;
         private string _direccion_envio;
         private string _telefono;
+        private string _tarjeta_id, _saldo;
 
         // Bandera para saber si la operación fue exitosa
         private bool executed = false;
@@ -49,7 +50,8 @@ namespace Presentation
             TBContrasena.Text = "";
             TBDireccion.Text = "";
             TBTelefono.Text = "";
-
+            TBtarjeta.Text = "";
+            TBsaldo.Text = "";
         }
         protected void BtnSave_Click(object sender, EventArgs e)
         {
@@ -61,10 +63,11 @@ namespace Presentation
             _contrasena = TBContrasena.Text;
             _direccion_envio = TBDireccion.Text;
             _telefono = Convert.ToString(TBTelefono.Text);
-
+            _tarjeta_id = TBtarjeta.Text;
+            _saldo = TBsaldo.Text;  
             // Llamada a la lógica para guardar el cliente
 
-            executed = objClient.SaveClients(_nombre, _apellido, _correo, _contrasena, _direccion_envio, _telefono);
+            executed = objClient.SaveClients(_nombre, _apellido, _correo, _contrasena, _direccion_envio, _telefono, _tarjeta_id, _saldo);
 
             if (executed)
             {
@@ -90,10 +93,12 @@ namespace Presentation
             _contrasena = TBContrasena.Text;
             _direccion_envio = TBDireccion.Text;
             _telefono = Convert.ToString(TBTelefono.Text);
+            _tarjeta_id = TBtarjeta.Text;
+            _saldo = TBsaldo.Text;
 
 
             // Llamada a la lógica de negocio para actualizar el cliente
-            executed = objClient.UpdateClients(_id, _nombre, _apellido, _correo, _contrasena, _direccion_envio, _telefono);
+            executed = objClient.UpdateClients(_id, _nombre, _apellido, _correo, _contrasena, _direccion_envio, _telefono, _tarjeta_id, _saldo);
 
             if (executed)
             {
@@ -119,6 +124,8 @@ namespace Presentation
             TBContrasena.Text = GVClientes.SelectedRow.Cells[4].Text;
             TBDireccion.Text = GVClientes.SelectedRow.Cells[5].Text;
             TBTelefono.Text = GVClientes.SelectedRow.Cells[6].Text;
+            TBtarjeta.Text = GVClientes.SelectedRow.Cells[7].Text;
+            TBsaldo.Text = GVClientes.SelectedRow.Cells[8].Text;
         }
 
         // Evento para eliminar un cliente

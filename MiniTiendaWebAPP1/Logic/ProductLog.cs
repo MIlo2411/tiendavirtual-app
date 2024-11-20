@@ -11,16 +11,16 @@ namespace Logic
     {
         ProductDat objpro = new ProductDat();
 
-        public bool InsertProduct(string _nombre, string _descripcion, double _precio, int _stock, string _imagen, int _proveedor_Id, int _categoria_Id)
+        public bool InsertProduct(string _nombre, string _descripcion, double _precio, int _stock,  int _proveedor_Id, int _categoria_Id)
         {
-            return objpro.InsertProduct( _nombre, _descripcion, _precio, _stock, _imagen,  _proveedor_Id,  _categoria_Id);
+            return objpro.InsertProduct( _nombre, _descripcion, _precio, _stock,  _proveedor_Id,  _categoria_Id);
 
         }
 
 
-        public bool UpdateProduct(int _id, string _nombre, string _descripcion, double _precio, int _stock, string _imagen)
+        public bool UpdateProduct(int _id, string _nombre, string _descripcion, double _precio, int _stock)
         {
-            return objpro.UpdateProduct(_id,  _nombre,  _descripcion,  _precio,  _stock,  _imagen);
+            return objpro.UpdateProduct(_id,  _nombre,  _descripcion,  _precio,  _stock);
         }
 
         public bool DeleteProduct(int _id)

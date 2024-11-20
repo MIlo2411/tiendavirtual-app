@@ -37,13 +37,7 @@
             <asp:TextBox ID="TBStock" runat="server" CssClass="form-control"  Placeholder="Ingrese la cantidad"></asp:TextBox>
             <br />
         </div>
-        <div class="mb-3">
-            <%-- Imagen --%>
-            <asp:Label ID="Label3" runat="server" Text="Imagen" CssClass="form-label"></asp:Label>
-            <asp:TextBox ID="TBtImg" runat="server" CssClass="form-control"></asp:TextBox>
-            <br />
-        </div>
-
+        
         <div class="mb-3">
             <asp:Label ID="Label6" runat="server" Text="categoria" CssClass="form-label"></asp:Label>
             <asp:DropDownList ID="DDLCategories" runat="server" CssClass="form-select"></asp:DropDownList>
@@ -69,7 +63,6 @@
                     <asp:BoundField DataField="pro_descripcion" HeaderText="Descripción" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" />
                     <asp:BoundField DataField="pro_precio" HeaderText="Precio" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" />
                     <asp:BoundField DataField="pro_stock" HeaderText="Cantidad" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" />
-                    <asp:BoundField DataField="pro_imagen" HeaderText="Imagen" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" />
                     <asp:BoundField DataField="tbl_proveedores_prov_id" HeaderText="Proveedor" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" />
                     <asp:BoundField DataField="tbl_categoria_cat_id" HeaderText="Categoría" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" />
 

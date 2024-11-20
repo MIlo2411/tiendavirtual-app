@@ -17,7 +17,7 @@ namespace Presentation
         CategoryLog objCat = new CategoryLog();
 
 
-        private string _nombre, _descripcion, _imagen;
+        private string _nombre, _descripcion;
         private double _precio;
         private int _id, _stock, _proveedor_Id, _categoria_Id;
 
@@ -103,11 +103,11 @@ namespace Presentation
             _descripcion = TBDescription.Text;
             _precio = Convert.ToDouble(TBPrice.Text);
             _stock = Convert.ToInt32(TBStock.Text);
-            _imagen = TBtImg.Text;
+           
             _proveedor_Id = Convert.ToInt32(DDLProviders.Text);
             _categoria_Id = Convert.ToInt32(DDLCategories.Text);
 
-            executed = objProd.InsertProduct(_nombre, _descripcion, _precio, _stock, _imagen, _proveedor_Id, _categoria_Id);
+            executed = objProd.InsertProduct(_nombre, _descripcion, _precio, _stock, _proveedor_Id, _categoria_Id);
 
 
             if (executed)
@@ -133,10 +133,10 @@ namespace Presentation
                 _descripcion = TBDescription.Text;
                 _precio = Convert.ToDouble(TBPrice.Text);
                 _stock = Convert.ToInt32(TBStock.Text);
-                _imagen = TBtImg.Text;
+               
 
 
-                executed = objProd.UpdateProduct(_id, _nombre, _descripcion, _precio, _stock, _imagen);
+                executed = objProd.UpdateProduct(_id, _nombre, _descripcion, _precio, _stock);
 
 
                 if (executed)
@@ -164,7 +164,7 @@ namespace Presentation
             TBDescription.Text = GVProducts.SelectedRow.Cells[2].Text;
             TBPrice.Text = GVProducts.SelectedRow.Cells[3].Text;
             TBStock.Text = GVProducts.SelectedRow.Cells[4].Text;
-            TBtImg.Text = GVProducts.SelectedRow.Cells[5].Text;
+          
 
             // Configuración de DDLProviders (proveedor) y DDLCategories (categoría)
             if (!string.IsNullOrEmpty(GVProducts.SelectedRow.Cells[6].Text))

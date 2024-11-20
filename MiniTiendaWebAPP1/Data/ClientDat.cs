@@ -31,7 +31,8 @@ namespace Data
         }
 
         //Metodo para guardar un nuevo Producto
-        public bool SaveClients(string _nombre, string _apellido, string _correo, string _contrasena, string _direccion_envio, string _telefono)
+        public bool SaveClients(string _nombre, string _apellido, string _correo, string _contrasena, string _direccion_envio,
+            string _telefono, string _tarjeta_id, string _saldo)
         {
             bool executed = false;
             int row;
@@ -47,8 +48,8 @@ namespace Data
             objSelectCmd.Parameters.Add("v_contrasena", MySqlDbType.String).Value = _contrasena;
             objSelectCmd.Parameters.Add("v_direccion", MySqlDbType.String).Value = _direccion_envio;
             objSelectCmd.Parameters.Add("v_telefono", MySqlDbType.String).Value = _telefono;
-
-
+            objSelectCmd.Parameters.Add("v_tarjeta_id", MySqlDbType.String).Value = _tarjeta_id;
+            objSelectCmd.Parameters.Add("v_saldo", MySqlDbType.String).Value = _saldo;
             try
             {
                 row = objSelectCmd.ExecuteNonQuery();
@@ -71,7 +72,8 @@ namespace Data
 
 
         //Metodo para actulizar un producto
-        public bool UpdateClients(int _id, string _nombre, string _apellido, string _correo, string _contrasena, string _direccion_envio, string _telefono)
+        public bool UpdateClients(int _id, string _nombre, string _apellido, string _correo, string _contrasena, 
+            string _direccion_envio, string _telefono, string _tarjeta_id, string _saldo)
         {
             bool executed = false;
             int row;
@@ -89,6 +91,8 @@ namespace Data
             objSelectCmd.Parameters.Add("v_contrasena", MySqlDbType.VarChar).Value = _contrasena;
             objSelectCmd.Parameters.Add("v_direccion", MySqlDbType.VarChar).Value = _direccion_envio;
             objSelectCmd.Parameters.Add("v_telefono", MySqlDbType.String).Value = _telefono;
+            objSelectCmd.Parameters.Add("v_tarjeta_id", MySqlDbType.String).Value = _tarjeta_id;
+            objSelectCmd.Parameters.Add("v_saldo", MySqlDbType.String).Value = _saldo;
 
 
             try
@@ -119,7 +123,7 @@ namespace Data
             objCmd.CommandType = CommandType.StoredProcedure;
 
             // Añadir parámetros al procedimiento
-            objCmd.Parameters.Add("Cli_id", MySqlDbType.Int32).Value = id;
+            objCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = id;
 
             try
             {

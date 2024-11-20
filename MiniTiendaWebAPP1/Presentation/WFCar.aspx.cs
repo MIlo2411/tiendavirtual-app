@@ -119,8 +119,8 @@ namespace Presentation
         }
         protected void GVCarrito_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            int carritoId = Convert.ToInt32(GVCarrito.DataKeys[e.RowIndex].Values[0]);
-            bool executed = objCarrito.DeleteCar(carritoId);
+            int _id = Convert.ToInt32(GVCarrito.DataKeys[e.RowIndex].Values[0]);
+            bool executed = objCarrito.DeleteCar(_id);
 
             if (executed)
             {

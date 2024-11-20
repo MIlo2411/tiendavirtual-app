@@ -44,14 +44,27 @@
             </div>
 
             <div class="col-md-4">
+               
                 <!-- Telefono del Cliente -->
                 <asp:Label ID="Label4" runat="server" Text="Teléfono:" CssClass="form-label"></asp:Label>
                 <asp:TextBox ID="TBTelefono" runat="server" CssClass="form-control" Placeholder="Ingrese el telefono"></asp:TextBox>
                 <br />
             </div>
 
+            <div class="col-md-4">
+                <!-- id de la tarjeta-->
+    <asp:Label ID="Label7" runat="server" Text="tarjeta:" CssClass="form-label"></asp:Label>
+    <asp:TextBox ID="TBtarjeta" runat="server" CssClass="form-control" Placeholder="Ingrese el id de la tarjeta"></asp:TextBox>
+    <br />
+</div>
+            <div class="col-md-4">
+            <!-- saldo -->
+    <asp:Label ID="Label8" runat="server" Text="Saldo:" CssClass="form-label"></asp:Label>
+    <asp:TextBox ID="TBsaldo" runat="server" CssClass="form-control" Placeholder="Ingrese el saldo"></asp:TextBox>
+    <br />
+</div>
 
-        </div>
+        
         <div class="row mb-3">
             <div class="col text-center">
                 <!-- Botones para guardar y actualizar clientes -->
@@ -74,6 +87,9 @@
                         <asp:BoundField DataField="cli_contrasena" HeaderText="Contrasena" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" />
                         <asp:BoundField DataField="cli_direccion_envio" HeaderText="Direccion" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" />
                         <asp:BoundField DataField="cli_telefono" HeaderText="Teléfono" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" />
+                        <asp:BoundField DataField="cli_tarjeta_id" HeaderText="Tarjeta" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" />
+                        <asp:BoundField DataField="cli_saldo" HeaderText="saldo" HeaderStyle-CssClass="text-center" ItemStyle-CssClass="text-center" />
+
 
                         <asp:CommandField ShowSelectButton="True" ButtonType="Button"
                             SelectText="Seleccionar"
