@@ -37,7 +37,7 @@
         </div>
 
         <div class="mb-3">
-            <asp:Label ID="Label6" runat="server" Text="categoria" CssClass="form-label"></asp:Label>
+            <asp:Label ID="Label6" runat="server" Text="Pedido" CssClass="form-label"></asp:Label>
             <asp:DropDownList ID="DDLPedidos" runat="server" CssClass="form-select"></asp:DropDownList>
             <br />
         </div>

@@ -119,7 +119,7 @@ namespace Data
             objCmd.CommandType = CommandType.StoredProcedure;
 
             // Añadir parámetros al procedimiento
-            objCmd.Parameters.Add("cli_id", MySqlDbType.Int32).Value = id;
+            objCmd.Parameters.Add("Cli_id", MySqlDbType.Int32).Value = id;
 
             try
             {

@@ -10,7 +10,11 @@
         <div class="mb-3">
             <!-- HiddenField para almacenar el ID del carrito seleccionado -->
             <asp:HiddenField ID="HFCarId" runat="server" />
+            <asp:Label ID="Label1" runat="server" Text="Cliente:" CssClass="form-label"></asp:Label>
             <asp:DropDownList ID="DDLClientes" runat="server" CssClass="form-select"></asp:DropDownList>
+            <br />
+
+            <asp:Label ID="Label2" runat="server" Text="producto" CssClass="form-label"></asp:Label>
             <asp:DropDownList ID="DDLProductos" runat="server" CssClass="form-select"></asp:DropDownList>
         </div>
 

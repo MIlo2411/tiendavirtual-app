@@ -36,13 +36,13 @@
     <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
-                <img src="resources/images/Carrusel1.jpg" class="d-block w-100" alt="Descripción de la imagen 1">
+                <img src="resources/images/carrusel5.jpg" class="d-block w-100" alt="Descripción de la imagen 1">
             </div>
             <div class="carousel-item" data-bs-interval="2000">
-                <img src="resources/images/Carrusel2.jpg" class="d-block w-100" alt="Descripción de la imagen 2">
+                <img src="resources/images/carrusel4.jpg" class="d-block w-100" alt="Descripción de la imagen 2">
             </div>
             <div class="carousel-item">
-                <img src="resources/images/Carrusel3.jpg" class="d-block w-100" alt="Descripción de la imagen 3">
+                <img src="resources/images/carrusel6.jpg" class="d-block w-100" alt="Descripción de la imagen 3">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -77,7 +77,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Calidad de sonido que te envuelve</h5>
                         <p class="card-text">Sumérgete en tu música con nuestros audífonos de última generación. Diseñados para ofrecer un sonido nítido y bajos profundos.</p>
-                        <a href="WFAudifonos" class="btn btn-primary">Ver más</a>
+                        <a href="WFAudifonos.aspx" class="btn btn-primary">Ver más</a>
                     </div>
                 </div>
             </div>

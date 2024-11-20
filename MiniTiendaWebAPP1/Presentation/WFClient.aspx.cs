@@ -42,7 +42,7 @@ namespace Presentation
         }
         private void Clear()
         {
-            _id = Convert.ToInt32(HFClienteId.Value);
+           
             TBNombre.Text = "";
             TBApellido.Text = "";
             TBCorreo.Text = "";

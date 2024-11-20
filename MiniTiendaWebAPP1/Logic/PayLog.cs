@@ -17,9 +17,9 @@ namespace Logic
             return objpay.showPay();
         }
 
-        public bool savePay(int _id, double _monto, string _fecha, string _metodo_pago, int _pedidos_ped_id)
+        public bool savePay(double _monto, string _fecha, string _metodo_pago, int _pedidos_ped_id)
         {
-            return objpay.savePay(_id,  _monto,  _fecha,  _metodo_pago,  _pedidos_ped_id);
+            return objpay.savePay(_monto,  _fecha,  _metodo_pago,  _pedidos_ped_id);
 
         }
 
