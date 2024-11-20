@@ -19,7 +19,7 @@ namespace Data
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procInsertCategories"; // nombre del procedimiento almacenado
+            objSelectCmd.CommandText = "procInsertCategory"; // nombre del procedimiento almacenado
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agregan los parámetros al comando
@@ -50,7 +50,7 @@ namespace Data
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procUpdateCategories"; // nombre del procedimiento almacenado
+            objSelectCmd.CommandText = "procUpdateCategory"; // nombre del procedimiento almacenado
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agregan los parámetros al comando
@@ -98,7 +98,7 @@ namespace Data
 
             MySqlCommand objSelectCmd = new MySqlCommand();
             objSelectCmd.Connection = objPer.openConnection();
-            objSelectCmd.CommandText = "procDeleteCategories"; // nombre del procedimiento almacenado
+            objSelectCmd.CommandText = "procDeleteCategory"; // nombre del procedimiento almacenado
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agrega el parámetro al comando

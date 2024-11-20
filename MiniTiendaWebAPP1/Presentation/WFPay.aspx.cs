@@ -79,13 +79,13 @@ namespace Presentation
         protected void BtnSave_Click(object sender, EventArgs e)
         {
 
-            _id = Convert.ToInt32(HFPagos.Value);
+          
             _monto = Convert.ToDouble(TBmonto.Text);
             _fecha = Convert.ToString(TBfecha.Text);
             _metodo_pago = TBPago.Text;
             _pedidos_ped_id = Convert.ToInt32(DDLPedidos.Text);
 
-            executed = objPay.savePay(_id, _monto, _fecha, _metodo_pago, _pedidos_ped_id);
+            executed = objPay.savePay(_monto, _fecha, _metodo_pago, _pedidos_ped_id);
 
 
             if (executed)

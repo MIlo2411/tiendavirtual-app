@@ -30,7 +30,7 @@ namespace Data
         }
 
         //Metodo para guardar un nuevo Producto
-        public bool savePay(int _id, double _monto, string _fecha, string _metodo_pago, int _pedidos_ped_id)
+        public bool savePay( double _monto, string _fecha, string _metodo_pago, int _pedidos_ped_id)
         {
             // Se inicializa una variable para indicar si la operación se ejecutó correctamente.
             bool executed = false;
@@ -43,7 +43,7 @@ namespace Data
             objSelectCmd.CommandType = CommandType.StoredProcedure;
 
             // Se agregan parámetros al comando para pasar los valores del producto.
-            objSelectCmd.Parameters.Add("v_id", MySqlDbType.Int32).Value = _id;
+            
             objSelectCmd.Parameters.Add("v_monto", MySqlDbType.Double).Value = _monto;
             objSelectCmd.Parameters.Add("v_fecha", MySqlDbType.String).Value = _fecha;
             objSelectCmd.Parameters.Add("v_metodo", MySqlDbType.VarString).Value = _metodo_pago;
